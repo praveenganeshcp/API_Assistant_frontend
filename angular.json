@@ -2,5 +2,127 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1, 
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "cpbase-client": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/cpbase-client",
+      "sourceRoot": "projects/cpbase-client/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/cpbase-client",
+            "index": "projects/cpbase-client/src/index.html",
+            "main": "projects/cpbase-client/src/main.ts",
+            "polyfills": "projects/cpbase-client/src/polyfills.ts",
+            "tsConfig": "projects/cpbase-client/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/cpbase-client/src/favicon.ico",
+              "projects/cpbase-client/src/assets"
+            ],
+            "styles": [
+              "projects/cpbase-client/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/cpbase-client/src/environments/environment.ts",
+                  "with": "projects/cpbase-client/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cpbase-client:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cpbase-client:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cpbase-client:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cpbase-client/src/test.ts",
+            "polyfills": "projects/cpbase-client/src/polyfills.ts",
+            "tsConfig": "projects/cpbase-client/tsconfig.spec.json",
+            "karmaConfig": "projects/cpbase-client/karma.conf.js",
+            "assets": [
+              "projects/cpbase-client/src/favicon.ico",
+              "projects/cpbase-client/src/assets"
+            ],
+            "styles": [
+              "projects/cpbase-client/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cpbase-client/tsconfig.app.json",
+              "projects/cpbase-client/tsconfig.spec.json",
+              "projects/cpbase-client/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/cpbase-client/e2e/protractor.conf.js",
+            "devServerTarget": "cpbase-client:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cpbase-client:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "cpbase-client"
 }
