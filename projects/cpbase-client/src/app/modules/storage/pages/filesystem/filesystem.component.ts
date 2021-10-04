@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IFileObject } from './file-object.model';
 
 @Component({
   selector: 'app-filesystem',
@@ -7,9 +8,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilesystemComponent implements OnInit {
 
-  constructor() { }
+    fileObjects: IFileObject[];
+    selectedPath: string;
 
-  ngOnInit(): void {
-  }
+    constructor() {
+        this.fileObjects = [];
+        this.selectedPath = '';
+     }
+
+    ngOnInit(): void {
+        this.fetchDirectories();
+    }
+
+    fetchDirectories() {
+        this.fileObjects = [];
+        for(let i=0;i<50;i++) {
+            this.fileObjects.push({
+                name: `File `+i,
+                isFile: i % 2 == 0,
+                path: ``
+            })
+        }
+    }
+
+    selectPath(index: number) {
+       this.selectedPath = this.selectedPath.split('/').slice(0, index+1).join('/');
+        this.fetchDirectories();
+    }
+
+    triggerOpenDirectory(path: string) {
+        this.selectedPath = this.selectedPath + path;
+        console.log(this.selectedPath)
+    }
 
 }

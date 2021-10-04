@@ -1,1 +1,19 @@
-<p>filesystem works!</p>
+<div class="file-object-window flex flex-se flex-col">
+    <div class="file-breacrumbs flex flex-start">
+        <span class="path flex flex-se" *ngFor="let path of selectedPath.split('/'); let pathIndex=index">
+            <span (click)="selectPath(pathIndex)">{{path}}</span>
+            <span (click)="selectPath(0)" *ngIf="pathIndex == 0" class="material-icons">
+                home
+            </span>
+            <span   class="material-icons">
+                chevron_right
+            </span>
+        </span>
+    </div>
+    <div class="file-explorer-container">
+        <app-file-explorer 
+            [fileObjects]="fileObjects"
+            (openDirectory)="triggerOpenDirectory($event)"
+        ></app-file-explorer>
+    </div>
+</div>

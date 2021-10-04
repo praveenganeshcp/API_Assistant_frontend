@@ -19,8 +19,12 @@ html, body {
 .flex-col {
     flex-direction: column;
 }
+.flex-wrap {
+    flex-wrap: wrap;
+}
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 a {
     color: inherit;

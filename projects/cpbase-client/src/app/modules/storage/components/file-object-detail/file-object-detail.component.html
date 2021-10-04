@@ -1,0 +1,9 @@
+<div (dblclick)="triggerOpenDirectory()" class="file-object flex flex-se flex-col">
+    <span *ngIf="!fileObject.isFile" class="material-icons file-object-icon">
+        folder
+    </span>
+    <span *ngIf="fileObject.isFile" class="material-icons file-object-icon">
+        description
+    </span>
+    <p>{{fileObject.name}}</p>
+</div>
