@@ -3,3 +3,25 @@ html, body {
     width: 100%;
     margin: 0;
 }
+.flex {
+    display: flex;
+    align-items: center;
+}
+.flex-start {
+    justify-content: flex-start;
+}
+.flex-se {
+    justify-content: space-evenly;
+}
+.flex-sb {
+    justify-content: space-between;
+}
+.flex-col {
+    flex-direction: column;
+}
+* {
+    box-sizing: border-box;
+}
+a {
+    color: inherit;
+}

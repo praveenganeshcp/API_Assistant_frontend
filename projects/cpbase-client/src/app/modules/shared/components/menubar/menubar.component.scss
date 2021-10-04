@@ -1,5 +1,19 @@
 .menubar {
     height: 100%;
     width: 100%;
-    background-color: red;
+}
+.menu-item {
+    height: 10%;
+    width: 100%;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+}
+.menu-item:hover {
+    background-color: rgb(163, 157, 157);
+}
+.active-menu-item {
+    background-color: rgb(124, 98, 98);
+}
+a {
+    text-decoration: none;
 }

@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppShellComponent implements OnInit {
 
-  constructor() { }
+    lightMode: boolean;
 
-  ngOnInit(): void {
-  }
+    constructor() { 
+        this.lightMode = false;
+    }
+
+    ngOnInit(): void {
+    }
+
+    toggleMode() {
+        this.lightMode = ! this.lightMode;
+    }
 
 }

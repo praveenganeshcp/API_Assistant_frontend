@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IMenu } from './menu.model';
 
 @Component({
   selector: 'app-menubar',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenubarComponent implements OnInit {
 
-  constructor() { }
+    menuOptions: IMenu[];
 
-  ngOnInit(): void {
-  }
+    constructor() { 
+        this.menuOptions = [
+            { view: 'Database', link: '/database/client' },
+            { view: 'Storage', link: '/storage/filesystem' },
+            { view: 'Logs', link: '/logs/recent' },
+        ]
+    }
+
+    ngOnInit(): void {
+    }
 
 }

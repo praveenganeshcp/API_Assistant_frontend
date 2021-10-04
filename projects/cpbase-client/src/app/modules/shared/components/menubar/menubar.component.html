@@ -1,3 +1,5 @@
-<div class="menubar">
-
+<div class="menubar flex flex-se flex-col">
+    <div [routerLink]="menu.link" class="flex flex-se menu-item" routerLinkActive="active-menu-item" *ngFor="let menu of menuOptions">
+        <a>{{menu.view}}</a>
+    </div>
 </div>
