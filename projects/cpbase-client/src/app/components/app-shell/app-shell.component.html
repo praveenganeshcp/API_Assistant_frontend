@@ -1,7 +1,6 @@
 <div class="app-shell" [class.light-mode]="lightMode" [class.dark-mode]="! lightMode">
-    <div class="app-header flex flex-sb">
-        <h2>cpbase</h2>
-        <button (click)="toggleMode()">{{lightMode ? 'Dark' : 'Light'}}</button>
+    <div class="app-header">
+        <app-header></app-header>
     </div>
     <div class="app-menubar-placeholder">
         <div class="menubar">
