@@ -3,7 +3,7 @@ import { FormControl, ValidationErrors } from "@angular/forms";
 export class CustomValidator {
     static strongPassword(control: FormControl): ValidationErrors | null {
         let value: string = control.value;
-        let caps = 0, small = 0, numerical = 0;
+        let caps = 0, small = 0, numerical = 0, special = 0;
         if(value == '') {
             return null;
         }
@@ -18,7 +18,10 @@ export class CustomValidator {
             else if(ascii >=97 && ascii <= 122) {
                 ++small;
             }
+            else if((ascii >= 33 && ascii <= 47) || (ascii >= 58 && ascii <= 64)) {
+                ++special;
+            }
         }
-        return (numerical >=3 && caps >= 3 && small >= 3) ? null : {weakPassword: value};
+        return (numerical >=1 && special >= 1 && caps >= 1 && small >= 1) ? null : {weakPassword: value};
     }
 }

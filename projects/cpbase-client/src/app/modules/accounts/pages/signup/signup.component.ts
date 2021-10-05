@@ -1,6 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidator } from '../../../shared/utilities/custom-validators';
+import { AccountApiService } from '../../services/account-api.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +13,7 @@ export class SignupComponent implements OnInit {
 
     signupForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) { 
+    constructor(private formBuilder: FormBuilder, private accountApiService: AccountApiService) { 
         this.signupForm = this.formBuilder.group({
             username: this.formBuilder.control('', [Validators.required]),
             mailId: this.formBuilder.control('', [Validators.required, Validators.email]),
@@ -23,8 +25,18 @@ export class SignupComponent implements OnInit {
     }
 
     createAccount() {
-        this.signupForm.markAllAsTouched();
-        console.log(this.signupForm.value);
+        if(this.signupForm.valid) {
+            this.accountApiService.createAccount(this.signupForm.value).subscribe(
+                response => {
+                    console.log(response);
+                },
+                (err: HttpErrorResponse) => {
+                    if(err.error) {
+                        console.log(err.error.message);
+                    }
+                }
+            )
+        }
     }
 
     get usernameControl() {
