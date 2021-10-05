@@ -1,0 +1,22 @@
+.application-list {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+.application-heading {
+    height: 10%;
+    width: 100%;
+    padding: 0 2%;
+}
+.application-card-container {
+    height: 90%;
+    width: 100%;
+    overflow-y: auto;
+}
+.application-card {
+    width: 14%;
+    height: 28%;
+    margin: 2%;
+    background-color: blue;
+}

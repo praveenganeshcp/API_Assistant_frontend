@@ -1,4 +1,5 @@
 export interface IMenu {
     view: string;
-    link: string
+    link: string,
+    icon: string;
 }

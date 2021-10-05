@@ -11,9 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [MenubarComponent, HeaderComponent],
   imports: [
     CommonModule,
-    RouterModule,
+    RouterModule.forChild([]),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [CommonModule, RouterModule, MenubarComponent, HeaderComponent, FormsModule, ReactiveFormsModule]
 })

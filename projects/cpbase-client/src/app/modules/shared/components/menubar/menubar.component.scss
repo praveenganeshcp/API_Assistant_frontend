@@ -5,8 +5,9 @@
 .menu-item {
     height: 10%;
     width: 100%;
-    border-radius: 0 50px 50px 0;
+    border-radius: 0 5px 5px 0;
     cursor: pointer;
+    padding: 0 5%;
 }
 .menu-item:hover {
     background-color: rgb(163, 157, 157);

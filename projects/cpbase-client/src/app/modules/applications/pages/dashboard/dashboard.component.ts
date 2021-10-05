@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IApplication } from './application.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+    applicationList: IApplication[];
 
-  ngOnInit(): void {
-  }
+    constructor() { }
+
+    ngOnInit(): void {
+        this.applicationList = [];
+        for(let i=0;i<10;i++) {
+            this.applicationList.push({
+                _id: "1000"+i,
+                name: 'Application 1',
+                collections: 10,
+                created_on: new Date()
+            })
+        }
+    }
 
 }

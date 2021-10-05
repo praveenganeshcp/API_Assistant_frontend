@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { AppShellComponent } from './components/app-shell/app-shell.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { SharedModule } from './modules/shared/shared.module';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppShellComponent,
-    LandingComponent
+    LandingComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

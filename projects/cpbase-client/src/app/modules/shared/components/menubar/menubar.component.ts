@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { IMenu } from './menu.model';
 
 @Component({
@@ -9,16 +10,18 @@ import { IMenu } from './menu.model';
 export class MenubarComponent implements OnInit {
 
     menuOptions: IMenu[];
+    private appId: string;
 
-    constructor() { 
+    constructor(private route: ActivatedRoute) { 
+        this.appId = this.route.snapshot.params['app_id'];
         this.menuOptions = [
-            { view: 'Database', link: '/database/client' },
-            { view: 'Storage', link: '/storage/filesystem' },
-            { view: 'Logs', link: '/logs/recent' },
+            { view: 'Database', icon: 'cloud_done', link: `/applications/${this.appId}/database/client` },
+            { view: 'Storage', icon: 'folder', link: `/applications/${this.appId}/storage/filesystem`},
+            { view: 'Logs', icon: 'table_rows', link: `/applications/${this.appId}/logs/recent`},
         ]
     }
 
-    ngOnInit(): void {
+    ngOnInit(): void { 
     }
 
 }

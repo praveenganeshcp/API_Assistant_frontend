@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IApplication } from '../../pages/dashboard/application.model';
 
 @Component({
   selector: 'app-application-card',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicationCardComponent implements OnInit {
 
-  constructor() { }
+    @Input() application: IApplication;
 
-  ngOnInit(): void {
-  }
+    constructor(private router: Router) { }
+
+    ngOnInit(): void {
+    }
+
+    viewApp() {
+        this.router.navigate(['applications', this.application._id, 'storage', 'filesystem']);
+    }
 
 }

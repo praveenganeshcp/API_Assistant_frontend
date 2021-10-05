@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppShellComponent } from './components/app-shell/app-shell.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,11 @@ const routes: Routes = [
         loadChildren: () => import('./modules/accounts/accounts.module').then(m => m.AccountsModule)
     },
     {
-        path: '',
+        path: 'applications',
+        loadChildren: () => import('./modules/applications/applications.module').then(m => m.ApplicationsModule)
+    },
+    {
+        path: 'applications/:app_id',
         component: AppShellComponent,
         children: [
             {
@@ -24,9 +29,12 @@ const routes: Routes = [
             {
                 path: 'database',
                 loadChildren: () => import('./modules/database/database.module').then(m => m.DatabaseModule)
-
             }
         ]
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
     }
 ];
 
