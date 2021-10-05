@@ -1,0 +1,20 @@
+<div class="db-operation">
+    <div class="db-operation-input flex">
+        <div class="db-operation-dropdown flex flex-se">
+            <select [(ngModel)]="selectedOperation" (ngModelChange)="operationChanged($event)">
+                <option *ngFor="let operation of dbOperations" [value]="operation">{{operation}}</option>
+            </select>
+        </div>
+        <div class="db-operation-query flex flex-se">
+            <textarea [(ngModel)]="dbQueryInput" autofocus name="query" cols="78" rows="5"></textarea>
+        </div>
+        <div class="db-run-button flex flex-se">
+            <button (click)="fetchResults()">
+                <span class="material-icons">send</span>
+            </button>
+        </div>
+    </div>
+    <div class="db-operation-output">
+        <pre>{{dbOperationResult | json}}</pre>
+    </div>
+</div>

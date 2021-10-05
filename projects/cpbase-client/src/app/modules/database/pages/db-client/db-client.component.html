@@ -1,1 +1,16 @@
-<p>db-client works!</p>
+<div class="db-client flex">
+    <div class="db-collections">
+        <app-collections-list 
+            [collections]="collectionList"
+            [selectedCollection]="selectedCollection"
+            (selectionChanged)="changeCollection($event)"
+        >
+        </app-collections-list>
+    </div>
+    <div class="db-operation">
+        <app-db-operation
+            (runQuery)="executeQuery($event)"
+        >
+        </app-db-operation>
+    </div>
+</div>

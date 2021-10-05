@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MenubarComponent } from './components/menubar/menubar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -10,8 +11,10 @@ import { RouterModule } from '@angular/router';
   declarations: [MenubarComponent, HeaderComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  exports: [CommonModule, RouterModule, MenubarComponent, HeaderComponent]
+  exports: [CommonModule, RouterModule, MenubarComponent, HeaderComponent, FormsModule, ReactiveFormsModule]
 })
 export class SharedModule { }

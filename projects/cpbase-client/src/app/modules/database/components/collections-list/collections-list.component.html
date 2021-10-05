@@ -1,0 +1,5 @@
+<div class="collections-list flex flex-col flex-wrap">
+    <div (click)="selectCollection(collection)" class="collection flex flex-se" [class.selected-collection]="selectedCollection == collection" *ngFor="let collection of collections">
+        <p>{{collection}} </p>
+    </div>
+</div>

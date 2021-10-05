@@ -7,9 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DbClientComponent implements OnInit {
 
-  constructor() { }
+    collectionList: string[];
+    selectedCollection: string;
 
-  ngOnInit(): void {
-  }
+    constructor() { 
+    }
+
+    ngOnInit(): void {
+        this.fetchCollections();
+    }
+
+    fetchCollections() {
+        this.collectionList = [];
+        for(let i=0;i<30;i++) {
+            this.collectionList.push('Collection '+i);
+        }
+        this.selectedCollection = this.collectionList[0];
+    }
+
+    changeCollection(collectionName: string) {
+        this.selectedCollection = collectionName;
+    }
+
+    executeQuery(event: {action: string, data: string}) {
+        let { action, data } = event;
+        let reqObj = {
+            collectionName: this.selectedCollection,
+            action,
+            data: JSON.stringify(data)
+        }
+        console.log(reqObj)
+    }
 
 }
