@@ -17,7 +17,7 @@ export class MenubarComponent implements OnInit {
         this.menuOptions = [
             { view: 'Database', icon: 'cloud_done', link: `/applications/${this.appId}/database/client` },
             { view: 'Storage', icon: 'folder', link: `/applications/${this.appId}/storage/filesystem`},
-            { view: 'Logs', icon: 'table_rows', link: `/applications/${this.appId}/logs/recent`},
+            // { view: 'Logs', icon: 'table_rows', link: `/applications/${this.appId}/logs/recent`},
         ]
     }
 
