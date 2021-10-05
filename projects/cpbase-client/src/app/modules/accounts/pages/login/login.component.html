@@ -12,6 +12,7 @@
             <input formControlName="password" placeholder="Password" type="password">
             <div *ngIf="passwordControl.invalid && passwordControl.touched">
                 <p *ngIf="passwordControl.errors.required">Field required</p>
+                <p *ngIf="passwordControl.errors.weakPassword">Weak password</p>
             </div>
         </div>
         <button type="submit">Submit</button>

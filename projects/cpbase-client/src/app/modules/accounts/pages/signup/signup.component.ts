@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomValidator } from '../../../shared/utilities/custom-validators';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
         this.signupForm = this.formBuilder.group({
             username: this.formBuilder.control('', [Validators.required]),
             mailId: this.formBuilder.control('', [Validators.required, Validators.email]),
-            password: this.formBuilder.control('', [Validators.required])
+            password: this.formBuilder.control('', [Validators.required, CustomValidator.strongPassword])
         })
     }
 
