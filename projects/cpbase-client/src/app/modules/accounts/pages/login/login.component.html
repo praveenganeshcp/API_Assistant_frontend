@@ -1,9 +1,20 @@
 <div class="signin-form flex flex-se flex-col">
     <h1>Login</h1>
-    <form class="flex flex-col flex-se">
-        <input placeholder="Email-id" type="email">
-        <input placeholder="Password" type="password">
-        <button (click)="navigate()">Login</button>
+    <form [formGroup]="loginForm" (ngSubmit)="loginAccount()" class="flex flex-col flex-se">
+        <div>
+            <input formControlName="mailId" placeholder="Email-id" type="email">
+            <div *ngIf="mailIdControl.invalid && mailIdControl.touched">
+                <p *ngIf="mailIdControl.errors.required">Field required</p>
+                <p *ngIf="mailIdControl.errors.email">Invalid mail ID</p>
+            </div>
+        </div>
+        <div>
+            <input formControlName="password" placeholder="Password" type="password">
+            <div *ngIf="passwordControl.invalid && passwordControl.touched">
+                <p *ngIf="passwordControl.errors.required">Field required</p>
+            </div>
+        </div>
+        <button type="submit">Submit</button>
     </form>
     <p>Don't have an account ? <a routerLink="/accounts/signup">create here</a></p>
     <p>Go to applications ? <a routerLink="/applications">Apps</a></p>
