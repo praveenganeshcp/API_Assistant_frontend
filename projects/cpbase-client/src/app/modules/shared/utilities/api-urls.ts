@@ -8,4 +8,6 @@ export const APIURL = {
     APPS: baseUrl+ 'projects',
     STORAGE: baseUrl+ 'cpbase/storage',
     DIRECTORIES: baseUrl + 'cpbase/directories',
+    COLLECTIONS: baseUrl+ 'cpbase/collections',
+    GLOBAL: baseUrl+ 'cpbase/global'
 }

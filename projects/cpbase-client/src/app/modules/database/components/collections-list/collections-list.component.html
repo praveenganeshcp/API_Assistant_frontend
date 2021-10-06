@@ -2,4 +2,12 @@
     <div (click)="selectCollection(collection)" class="collection flex flex-se" [class.selected-collection]="selectedCollection == collection" *ngFor="let collection of collections">
         <p>{{collection}} </p>
     </div>
+    <div class="collection flex flex-se">
+        <button *ngIf="!inNewCollectionMode" (click)="inNewCollectionMode = true">Add collection</button>
+        <div class="flex flex-se" *ngIf="inNewCollectionMode">
+            <input placeholder="Collection name" [(ngModel)]="newCollectionName">
+            <button (click)="addCollection()">Save</button>
+            <button (click)="inNewCollectionMode = false">Cancel</button>
+        </div>
+    </div>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { DbService } from '../../services/db.service';
 
 @Component({
   selector: 'app-db-client',
@@ -9,8 +11,10 @@ export class DbClientComponent implements OnInit {
 
     collectionList: string[];
     selectedCollection: string;
+    dbResult: any;
 
-    constructor() { 
+    constructor(private dbService: DbService, private toastr: ToastrService) { 
+        this.dbResult = {};
     }
 
     ngOnInit(): void {
@@ -19,10 +23,23 @@ export class DbClientComponent implements OnInit {
 
     fetchCollections() {
         this.collectionList = [];
-        for(let i=0;i<30;i++) {
-            this.collectionList.push('Collection '+i);
-        }
-        this.selectedCollection = this.collectionList[0];
+        this.dbService.fetchCollections('615696fdd59997615a2b2334').subscribe(
+            (collections) => {
+                this.collectionList = collections;
+                if(this.collectionList.length > 0) {
+                    this.selectedCollection = this.collectionList[0];
+                }
+            },
+            err => {
+                this.toastr.error('Error in fetching collections', 'Failed');
+                this.collectionList = [];
+            }
+        )
+    }
+
+    addCollection(collectionName: string) {
+        this.collectionList.push(collectionName);
+        this.selectedCollection = collectionName;
     }
 
     changeCollection(collectionName: string) {
@@ -34,9 +51,16 @@ export class DbClientComponent implements OnInit {
         let reqObj = {
             collectionName: this.selectedCollection,
             action,
-            data: JSON.stringify(data)
+            data,
         }
-        console.log(reqObj)
+        this.dbService.executeQuery('615696fdd59997615a2b2334', reqObj).subscribe(
+            (response) => {
+                this.dbResult = response;
+            },
+            err => {
+                console.error(err);
+            }
+        )
     }
 
 }

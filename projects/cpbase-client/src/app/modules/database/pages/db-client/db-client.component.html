@@ -4,11 +4,13 @@
             [collections]="collectionList"
             [selectedCollection]="selectedCollection"
             (selectionChanged)="changeCollection($event)"
+            (newCollection)="addCollection($event)"
         >
         </app-collections-list>
     </div>
     <div class="db-operation">
         <app-db-operation
+            [dbOperationResult]="dbResult"
             (runQuery)="executeQuery($event)"
         >
         </app-db-operation>
