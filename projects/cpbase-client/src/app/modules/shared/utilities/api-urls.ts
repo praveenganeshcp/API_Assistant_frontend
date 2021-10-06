@@ -5,4 +5,5 @@ const baseUrl = environment.apiUrl+'api/v1/'
 export const APIURL = {
     SIGNUP: baseUrl + 'accounts/signup',
     LOGIN: baseUrl + 'accounts/login',
+    FETCH_APPS: baseUrl+ 'projects'
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IApplication } from '../../pages/dashboard/application.model';
+import { IApplication } from '../../services/application.model';
 
 @Component({
   selector: 'app-application-card',
