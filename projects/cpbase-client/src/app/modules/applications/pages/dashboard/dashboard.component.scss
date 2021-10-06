@@ -13,6 +13,11 @@
     width: 100%;
     padding: 0 2%;
 }
+.create-app {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2em;
+}
 .search-create-apps {
     height: 10%;
     width: 100%;
@@ -20,12 +25,13 @@
 }
 .search-create-apps > div {
     height: 100%;
-    width: 30%;
+    width: 40%;
 }
 .search-create-apps button, input {
     padding: 3px;
     border-radius: 5px;
     height: 100%;
+    font-size: 1.3em;
 }
 .application-card-container {
     height: 73%;

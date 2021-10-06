@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IAuthUser } from '../../../accounts/services/account.response';
 import { LocalstorageService } from '../../services/localstorage/localstorage.service';
 
 @Component({
@@ -9,7 +10,11 @@ import { LocalstorageService } from '../../services/localstorage/localstorage.se
 })
 export class HeaderComponent implements OnInit {
 
-    constructor(private localStorageService: LocalstorageService, private router: Router) { }
+    authUser: IAuthUser;
+
+    constructor(private localStorageService: LocalstorageService, private router: Router) { 
+        this.authUser = this.localStorageService.getAuthUser();
+    }
 
     ngOnInit(): void {
     }

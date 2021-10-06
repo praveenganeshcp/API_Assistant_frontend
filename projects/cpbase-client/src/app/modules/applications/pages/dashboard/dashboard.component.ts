@@ -12,9 +12,11 @@ export class DashboardComponent implements OnInit {
     applicationList: IApplication[];
     inCreateAppMode: boolean;
     appName: string;
+    inProgress: boolean;
 
     constructor(private applicationService: ApplicationService) { 
         this.inCreateAppMode = false;
+        this.inProgress = false;
     }
 
     ngOnInit(): void {
@@ -23,12 +25,16 @@ export class DashboardComponent implements OnInit {
 
     fetchApps() {
         this.applicationList = [];
+        this.inProgress = true;
         this.applicationService.fetchApps().subscribe(
             (apps) => {
                 this.applicationList = apps;
             },
             (err) => {
                 console.error(err);
+            },
+            () => {
+                this.inProgress = false;
             }
         )
     }
@@ -37,6 +43,7 @@ export class DashboardComponent implements OnInit {
         if(this.appName == '') {
             return;
         }
+        this.inProgress = true;
         this.applicationService.createApp(this.appName).subscribe(
             (response) => {
                 console.log(response);
@@ -45,6 +52,9 @@ export class DashboardComponent implements OnInit {
             },
             err => {
                 console.error(err);
+            },
+            () => {
+                this.inProgress = false;
             }
         )
     }

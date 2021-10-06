@@ -7,16 +7,16 @@
     </div>
     <div class="flex flex-se search-create-apps">
         <div class="flex flex-ar" *ngIf="!inCreateAppMode">
-            <input placeholder="Search apps">
+            <input autofocus placeholder="Search apps">
         </div>
         <div class="flex flex-ar" *ngIf="inCreateAppMode">
-            <input [(ngModel)]="appName" placeholder="Application name"/>
-            <button (click)="createApp()">Create</button>
-            <button>Cancel</button>
+            <input autofocus [(ngModel)]="appName" placeholder="Application name"/>
+            <button [disabled]="inProgress" (click)="createApp()">Create</button>
+            <button [disabled]="inProgress" (click)="inCreateAppMode = false">Cancel</button>
         </div>
     </div>
-    <div class="application-card-container flex flex-start flex-wrap">
-        <div (click)="inCreateAppMode = true;" class="application-card flex flex-se">
+    <div class="application-card-container flex flex-se flex-wrap">
+        <div *ngIf="! inCreateAppMode" (click)="inCreateAppMode = true;" class="create-app application-card flex flex-se">
             <span class="material-icons">
                 add_circle_outline
             </span>
