@@ -58,7 +58,7 @@ export class DbClientComponent implements OnInit {
                 this.dbResult = response;
             },
             err => {
-                console.error(err);
+                this.toastr.error(err, 'Failed');
             }
         )
     }

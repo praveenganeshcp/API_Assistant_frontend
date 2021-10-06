@@ -17,7 +17,7 @@ export class DbOperationComponent implements OnInit {
 
     constructor(private toastr: ToastrService) { 
         this.dbQueryInput = "{}";
-        this.dbOperations = ['find', 'findOne', 'insertOne'];
+        this.dbOperations = ['findOne', 'find', 'insertOne', 'insertMany', 'updateOne', 'updateMany', 'aggregate', 'deleteOne', 'deleteMany'];
         this.selectedOperation = 'find';
     }
 
