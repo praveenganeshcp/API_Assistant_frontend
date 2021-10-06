@@ -11,4 +11,8 @@ export class ApplicationService {
     fetchApps() {
         return this.applicationAPIService.fetchApplications();
     }
+
+    createApp(appName: string) {
+        return this.applicationAPIService.createApp({name: appName});
+    } 
 }

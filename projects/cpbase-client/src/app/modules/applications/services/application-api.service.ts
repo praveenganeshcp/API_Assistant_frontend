@@ -11,6 +11,10 @@ export class ApplicationApiService {
     constructor(private http: HttpClient) { }
 
     fetchApplications() {
-        return this.http.get<IApplication[]>(APIURL.FETCH_APPS);
+        return this.http.get<IApplication[]>(APIURL.APPS);
+    }
+
+    createApp(reqData: {name: string}) {
+        return this.http.post<IApplication>(APIURL.APPS, reqData)
     }
 }

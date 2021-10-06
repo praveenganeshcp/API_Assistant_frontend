@@ -5,8 +5,18 @@
     <div class="application-heading flex">
         <h1>Applications</h1>
     </div>
+    <div class="flex flex-se search-create-apps">
+        <div class="flex flex-ar" *ngIf="!inCreateAppMode">
+            <input placeholder="Search apps">
+        </div>
+        <div class="flex flex-ar" *ngIf="inCreateAppMode">
+            <input [(ngModel)]="appName" placeholder="Application name"/>
+            <button (click)="createApp()">Create</button>
+            <button>Cancel</button>
+        </div>
+    </div>
     <div class="application-card-container flex flex-start flex-wrap">
-        <div class="application-card flex flex-se">
+        <div (click)="inCreateAppMode = true;" class="application-card flex flex-se">
             <span class="material-icons">
                 add_circle_outline
             </span>

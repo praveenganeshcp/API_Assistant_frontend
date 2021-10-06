@@ -13,8 +13,22 @@
     width: 100%;
     padding: 0 2%;
 }
+.search-create-apps {
+    height: 10%;
+    width: 100%;
+    padding: 10px;
+}
+.search-create-apps > div {
+    height: 100%;
+    width: 30%;
+}
+.search-create-apps button, input {
+    padding: 3px;
+    border-radius: 5px;
+    height: 100%;
+}
 .application-card-container {
-    height: 83%;
+    height: 73%;
     width: 100%;
     overflow-y: auto;
 }
