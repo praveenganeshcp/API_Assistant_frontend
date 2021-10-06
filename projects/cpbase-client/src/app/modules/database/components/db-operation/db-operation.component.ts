@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-db-operation',
@@ -14,7 +15,7 @@ export class DbOperationComponent implements OnInit {
 
     @Output() runQuery = new EventEmitter<{action: string, data: string}>();
 
-    constructor() { 
+    constructor(private toastr: ToastrService) { 
         this.dbQueryInput = "{}";
         this.dbOperations = ['find', 'findOne', 'insertOne'];
         this.selectedOperation = 'find';
@@ -28,7 +29,12 @@ export class DbOperationComponent implements OnInit {
     }
 
     fetchResults() {
-        this.runQuery.emit({action: this.selectedOperation, data: JSON.parse(this.dbQueryInput)});
+        try {
+            this.runQuery.emit({action: this.selectedOperation, data: JSON.parse(this.dbQueryInput)});
+        }
+        catch(err) {
+            this.toastr.error(err.toString());
+        }
     }
 
 }
