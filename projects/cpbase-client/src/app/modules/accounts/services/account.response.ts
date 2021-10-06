@@ -5,9 +5,8 @@ export interface ISignupRequest {
 }
 
 export interface ISignupResponse {
-    success: boolean;
     token: string;
-    result: {
+    user: {
         _id: string;
         name: string;
         mailId: string;
