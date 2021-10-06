@@ -3,7 +3,7 @@ export interface ISignupRequest {
     password: string;
     mailId: string;
 }
-
+export type ILoginRequest = Pick<ISignupRequest, 'mailId' | 'password'>;
 export interface IAuthUser {
     _id: string;
     name: string;
@@ -17,3 +17,5 @@ export interface ISignupResponse {
     token: string;
     user: IAuthUser
 }
+
+export type ILoginResponse = ISignupResponse;

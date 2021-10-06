@@ -15,6 +15,15 @@ export class LocalstorageService {
         return localStorage.getItem(key);
     }
 
+    private removeItem(key: string) {
+        localStorage.removeItem(key);
+    }
+
+    removeLoginData() {
+        this.removeItem('authUser');
+        this.removeItem('token');
+    }
+
     setAuthUser(user: IAuthUser) {
         this.setItem('authUser', JSON.stringify(user));
     }

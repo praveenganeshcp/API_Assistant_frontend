@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { APIURL } from '../../shared/utilities/api-urls';
-import { ISignupRequest, ISignupResponse } from './account.response';
+import { ILoginRequest, ILoginResponse, ISignupRequest, ISignupResponse } from './account.response';
 
 @Injectable({
   providedIn: 'root'
@@ -12,5 +12,9 @@ export class AccountApiService {
 
     createAccount(userData: ISignupRequest) {
         return this.http.post<ISignupResponse>(APIURL.SIGNUP, userData);
+    }
+
+    loginUser(loginData: ILoginRequest) {
+        return this.http.post<ILoginResponse>(APIURL.LOGIN, loginData);
     }
 }
