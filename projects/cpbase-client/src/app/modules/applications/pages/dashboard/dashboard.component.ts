@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { IApplication } from '../../services/application.model';
 import { ApplicationService } from '../../services/application.service';
 
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
     appName: string;
     inProgress: boolean;
 
-    constructor(private applicationService: ApplicationService) { 
+    constructor(private applicationService: ApplicationService, private toastr: ToastrService) { 
         this.inCreateAppMode = false;
         this.inProgress = false;
     }
@@ -29,33 +30,34 @@ export class DashboardComponent implements OnInit {
         this.applicationService.fetchApps().subscribe(
             (apps) => {
                 this.applicationList = apps;
+                this.inProgress = false;
             },
             (err) => {
-                console.error(err);
-            },
-            () => {
+                this.toastr.error('Error in fetching apps', 'Failed');
                 this.inProgress = false;
-            }
+            },
         )
     }
 
     createApp() {
-        if(this.appName == '') {
+        if(!this.appName) {
+            this.toastr.warning('Enter Application name', 'Warning');
             return;
         }
         this.inProgress = true;
         this.applicationService.createApp(this.appName).subscribe(
             (response) => {
+                this.toastr.success('Application created', 'Success');
+                this.inProgress = false;
                 console.log(response);
                 this.appName = '';
+                this.inCreateAppMode = false;
                 this.fetchApps();
             },
             err => {
-                console.error(err);
-            },
-            () => {
                 this.inProgress = false;
-            }
+                this.toastr.error(err, 'Error');
+            },
         )
     }
 

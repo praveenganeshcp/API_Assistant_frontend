@@ -6,7 +6,7 @@
         <h1>Applications</h1>
     </div>
     <div class="flex flex-se search-create-apps">
-        <div class="flex flex-ar" *ngIf="!inCreateAppMode">
+        <div class="flex flex-ar" *ngIf="!inCreateAppMode && applicationList.length > 0">
             <input autofocus placeholder="Search apps">
         </div>
         <div class="flex flex-ar" *ngIf="inCreateAppMode">

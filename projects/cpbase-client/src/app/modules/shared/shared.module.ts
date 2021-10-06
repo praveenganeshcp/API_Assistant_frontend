@@ -6,9 +6,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './services/interceptors/auth-interceptor.service';
-
-
-
 @NgModule({
   declarations: [MenubarComponent, HeaderComponent],
   imports: [
@@ -16,7 +13,7 @@ import { AuthInterceptorService } from './services/interceptors/auth-interceptor
     RouterModule.forChild([]),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }

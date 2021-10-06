@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { LocalstorageService } from '../../../shared/services/localstorage/localstorage.service';
 import { CustomValidator } from '../../../shared/utilities/custom-validators';
 import { AccountServiceService } from '../../services/account-service.service';
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     continueUrl: string;
 
-    constructor(private router: Router, private formBuilder: FormBuilder, private accountService: AccountServiceService, private localStorageService: LocalstorageService, private activatedRoute: ActivatedRoute) { 
+    constructor(private router: Router, private formBuilder: FormBuilder, private accountService: AccountServiceService, private localStorageService: LocalstorageService, private activatedRoute: ActivatedRoute, private toastr: ToastrService) { 
         this.loginForm = this.formBuilder.group({
             mailId: this.formBuilder.control('', [Validators.required, Validators.email]),
             password: this.formBuilder.control('', [Validators.required, CustomValidator.strongPassword])
@@ -41,12 +42,12 @@ export class LoginComponent implements OnInit {
                     }
                 },
                 err => {
-                    console.error(err);
+                    this.toastr.error(err, 'Error');
                 }
             )
         }   
         else {
-            console.error('Invalid form');
+            this.toastr.warning('Fill all valid data', 'Warning');
         }
     }
 
