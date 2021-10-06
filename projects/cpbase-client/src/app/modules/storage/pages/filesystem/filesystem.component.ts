@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IFileObject } from './file-object.model';
+import { ActivatedRoute } from '@angular/router';
+import { IObject } from '../../services/object.model';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-filesystem',
@@ -8,10 +10,10 @@ import { IFileObject } from './file-object.model';
 })
 export class FilesystemComponent implements OnInit {
 
-    fileObjects: IFileObject[];
+    fileObjects: IObject[];
     selectedPath: string;
 
-    constructor() {
+    constructor(private storageService: StorageService, private activatedRoute: ActivatedRoute) {
         this.fileObjects = [];
         this.selectedPath = '';
      }
@@ -22,13 +24,14 @@ export class FilesystemComponent implements OnInit {
 
     fetchDirectories() {
         this.fileObjects = [];
-        for(let i=0;i<50;i++) {
-            this.fileObjects.push({
-                name: `File `+i,
-                isFile: i % 2 == 0,
-                path: ``
-            })
-        }
+        this.storageService.fetchDirectories('615d6714da7e8c193c0d93c9', this.selectedPath).subscribe(
+            (objects) => {
+                this.fileObjects = objects;
+            },
+            err => {
+                console.error(err);
+            }
+        )
     }
 
     selectPath(index: number) {
@@ -37,8 +40,8 @@ export class FilesystemComponent implements OnInit {
     }
 
     triggerOpenDirectory(path: string) {
-        this.selectedPath = this.selectedPath + path;
-        console.log(this.selectedPath)
+        this.selectedPath = this.selectedPath + '/' + path;
+        this.fetchDirectories();
     }
 
 }

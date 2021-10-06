@@ -1,6 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { IFileObject } from '../../pages/filesystem/file-object.model';
+import { IObject } from '../../services/object.model';
 
 @Component({
   selector: 'app-file-object-detail',
@@ -9,7 +9,7 @@ import { IFileObject } from '../../pages/filesystem/file-object.model';
 })
 export class FileObjectDetailComponent implements OnInit {
 
-    @Input() fileObject: IFileObject;
+    @Input() fileObject: IObject;
 
     @Output() openDirectory = new EventEmitter<string>();
 
@@ -19,7 +19,7 @@ export class FileObjectDetailComponent implements OnInit {
     }
 
     triggerOpenDirectory() {
-        this.openDirectory.emit(this.fileObject.path+'/'+this.fileObject.name);
+        this.openDirectory.emit(this.fileObject.name);
     }
 
 }

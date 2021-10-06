@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IFileObject } from '../../pages/filesystem/file-object.model';
+import { IObject } from '../../services/object.model';
 
 @Component({
   selector: 'app-file-explorer',
@@ -8,7 +8,7 @@ import { IFileObject } from '../../pages/filesystem/file-object.model';
 })
 export class FileExplorerComponent implements OnInit {
 
-    @Input() fileObjects: IFileObject[];
+    @Input() fileObjects: IObject[];
 
     @Output() openDirectory = new EventEmitter<string>();
 

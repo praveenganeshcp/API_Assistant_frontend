@@ -27,6 +27,7 @@ export class SignupComponent implements OnInit {
     }
 
     createAccount() {
+        this.signupForm.markAllAsTouched();
         if(this.signupForm.valid) {
             this.accountService.createAccount(this.signupForm.value).subscribe(
                 response => {
