@@ -2,6 +2,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, filter, map } from 'rxjs/operators';
+import { LocalstorageService } from '../localstorage/localstorage.service';
 
 interface SuccessResponse {
     success: boolean;
@@ -18,10 +19,13 @@ interface ErrorResponse {
 })
 export class AuthInterceptorService implements HttpInterceptor {
 
-    constructor() { }
+    constructor(private localStorageService: LocalstorageService) { }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         console.log(req.url);
-        return next.handle(req).pipe(
+        let authRequest = req.clone({setHeaders: {
+            'Authorization': 'Bearer '+this.localStorageService.getAuthToken(),
+        }})
+        return next.handle(authRequest).pipe(
             filter(response => response instanceof HttpResponse),
             map((response: HttpResponse<SuccessResponse>) => {
                 const resp = response.clone({body: response.body.result});
