@@ -12,6 +12,7 @@ export class FilesystemComponent implements OnInit {
 
     fileObjects: IObject[];
     selectedPath: string;
+    projectId: string;
 
     constructor(private storageService: StorageService, private activatedRoute: ActivatedRoute) {
         this.fileObjects = [];
@@ -19,12 +20,13 @@ export class FilesystemComponent implements OnInit {
      }
 
     ngOnInit(): void {
+        this.projectId = this.activatedRoute.parent.parent.snapshot.params['app_id'];
         this.fetchDirectories();
     }
 
     fetchDirectories() {
         this.fileObjects = [];
-        this.storageService.fetchDirectories('615d6714da7e8c193c0d93c9', this.selectedPath).subscribe(
+        this.storageService.fetchDirectories(this.projectId, this.selectedPath).subscribe(
             (objects) => {
                 this.fileObjects = objects;
             },

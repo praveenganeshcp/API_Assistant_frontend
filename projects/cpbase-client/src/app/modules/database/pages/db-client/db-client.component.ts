@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DbService } from '../../services/db.service';
 
@@ -12,18 +13,20 @@ export class DbClientComponent implements OnInit {
     collectionList: string[];
     selectedCollection: string;
     dbResult: any;
+    projectId: string;
 
-    constructor(private dbService: DbService, private toastr: ToastrService) { 
+    constructor(private dbService: DbService, private toastr: ToastrService, private activatedRoute: ActivatedRoute) { 
         this.dbResult = {};
     }
 
     ngOnInit(): void {
+        this.projectId = this.activatedRoute.parent.parent.snapshot.params['app_id'];
         this.fetchCollections();
     }
 
     fetchCollections() {
         this.collectionList = [];
-        this.dbService.fetchCollections('615696fdd59997615a2b2334').subscribe(
+        this.dbService.fetchCollections(this.projectId).subscribe(
             (collections) => {
                 this.collectionList = collections;
                 if(this.collectionList.length > 0) {
