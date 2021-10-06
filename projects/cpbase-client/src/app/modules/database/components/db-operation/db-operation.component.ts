@@ -26,6 +26,7 @@ export class DbOperationComponent implements OnInit {
 
     operationChanged(operation: string) {
         this.selectedOperation = operation;
+        this.dbQueryInput = "{}";
     }
 
     fetchResults() {

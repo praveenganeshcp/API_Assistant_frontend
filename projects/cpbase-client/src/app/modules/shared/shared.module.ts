@@ -6,8 +6,9 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './services/interceptors/auth-interceptor.service';
+import { JsonStringifierPipe } from './pipes/json-stringifier.pipe';
 @NgModule({
-  declarations: [MenubarComponent, HeaderComponent],
+  declarations: [MenubarComponent, HeaderComponent, JsonStringifierPipe],
   imports: [
     CommonModule,
     RouterModule.forChild([]),
@@ -18,6 +19,6 @@ import { AuthInterceptorService } from './services/interceptors/auth-interceptor
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
   ],
-  exports: [CommonModule, RouterModule, MenubarComponent, HeaderComponent, FormsModule, ReactiveFormsModule, HttpClientModule]
+  exports: [CommonModule, RouterModule, MenubarComponent, HeaderComponent, FormsModule, ReactiveFormsModule, HttpClientModule, JsonStringifierPipe]
 })
 export class SharedModule { }
