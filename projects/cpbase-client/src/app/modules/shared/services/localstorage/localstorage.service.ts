@@ -32,7 +32,7 @@ export class LocalstorageService {
         this.setItem('token', token);
     }
 
-    getAuthUser() {
+    getAuthUser(): IAuthUser | null {
         let user = this.getItem('authUser');
         return user ? JSON.parse(user) : null;
     }
