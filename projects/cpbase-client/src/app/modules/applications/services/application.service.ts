@@ -15,4 +15,8 @@ export class ApplicationService {
     createApp(appName: string) {
         return this.applicationAPIService.createApp({name: appName});
     } 
+
+    fetchAppDetail(appId: string) {
+        return this.applicationAPIService.fetchAppDetail(appId);
+    }
 }

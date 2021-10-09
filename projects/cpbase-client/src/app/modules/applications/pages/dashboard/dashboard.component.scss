@@ -33,15 +33,24 @@
     height: 100%;
     font-size: 1.3em;
 }
-.application-card-container {
+.application-table-container {
     height: 73%;
     width: 100%;
     overflow-y: auto;
 }
-.application-card {
-    width: 14%;
-    height: 28%;
-    margin: 2%;
+.application-table {
+    width: 80%;
+    height: 90%;
     background-color: blue;
-    border-radius: 5px;
+    overflow: auto;
+}
+.application-table table {
+    height: auto;
+    width: 100%;
+    text-align: center;
+}
+.application-table td {
+    padding: 15px 5px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
 }

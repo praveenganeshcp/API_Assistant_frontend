@@ -21,10 +21,20 @@
             <button [disabled]="inProgress" (click)="inCreateAppMode = false">Cancel</button>
         </div>
     </div>
-    <div class="application-card-container flex flex-se flex-wrap">
-        
-        <div class="application-card" *ngFor="let application of applicationList">
-            <app-application-card [application]="application"></app-application-card>
+    <div class="application-table-container flex flex-se">
+        <div class="application-table">
+            <table>
+                <tr *ngFor="let app of applicationList">
+                    <td>{{app._id}}</td>
+                    <td>{{app.name}}</td>
+                    <td>{{app.created_on | date}}</td>
+                    <td>
+                        <button (click)="viewApp(app['_id'])">
+                            View
+                        </button>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
