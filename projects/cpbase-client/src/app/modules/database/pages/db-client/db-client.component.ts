@@ -50,13 +50,17 @@ export class DbClientComponent implements OnInit {
     }
 
     executeQuery(event: {action: string, data: string}) {
+        if(!this.selectedCollection) {
+            this.toastr.warning('Select or create a new collection', 'Warning');
+            return;
+        }
         let { action, data } = event;
         let reqObj = {
             collectionName: this.selectedCollection,
             action,
             data,
         }
-        this.dbService.executeQuery('615696fdd59997615a2b2334', reqObj).subscribe(
+        this.dbService.executeQuery(this.projectId, reqObj).subscribe(
             (response) => {
                 this.dbResult = response;
             },
