@@ -6,8 +6,14 @@
         <h1>Applications</h1>
     </div>
     <div class="flex flex-se search-create-apps">
-        <div class="flex flex-ar" *ngIf="!inCreateAppMode && applicationList.length > 0">
-            <input autofocus placeholder="Search apps">
+        <div class="flex flex-ar" *ngIf="!inCreateAppMode">
+            <input *ngIf="applicationList.length > 0" autofocus placeholder="Search apps">
+            <button *ngIf="! inCreateAppMode" (click)="inCreateAppMode = true;" class="create-app flex flex-se">
+                <span class="material-icons">
+                    add_circle_outline
+                </span>
+                <p>Application</p>
+            </button>
         </div>
         <div class="flex flex-ar" *ngIf="inCreateAppMode">
             <input autofocus [(ngModel)]="appName" placeholder="Application name"/>
@@ -16,12 +22,7 @@
         </div>
     </div>
     <div class="application-card-container flex flex-se flex-wrap">
-        <div *ngIf="! inCreateAppMode" (click)="inCreateAppMode = true;" class="create-app application-card flex flex-se">
-            <span class="material-icons">
-                add_circle_outline
-            </span>
-            <p>New Application</p>
-        </div>
+        
         <div class="application-card" *ngFor="let application of applicationList">
             <app-application-card [application]="application"></app-application-card>
         </div>
