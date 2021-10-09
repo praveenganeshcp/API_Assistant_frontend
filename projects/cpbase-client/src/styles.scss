@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
 @import '~ngx-toastr/toastr';
 
 html, body {
     height: 100%;
     width: 100%;
     margin: 0;
+}
+.app-name {
+    font-family: Viga;
 }
 .flex {
     display: flex;

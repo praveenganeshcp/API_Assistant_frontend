@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { appConstants } from 'projects/cpbase-client/src/app/app.constants';
 
 @Component({
   selector: 'app-account-shell',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountShellComponent implements OnInit {
 
-  constructor() { }
+    appConst: any;
+    constructor() {
+        this.appConst = appConstants;
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }
