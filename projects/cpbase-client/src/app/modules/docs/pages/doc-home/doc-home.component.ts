@@ -32,7 +32,8 @@ export class DocHomeComponent implements OnInit {
                     { variable: 'data', type: 'JSON Object | Array' }
                 ],
                 description: 'Perform CRUD operations using Global API. In the request body, specify collectionName where to run the queries, action specifies the operation performed on a collection and data can represent query or collection input data',
-                response: 'MongoDB results based on the action'
+                response: 'MongoDB results based on the action',
+                note: 'For updateOne and updateMany queries, specify filter and update objects inside data objects similiar to MongoDB update arguments'
             },
             {
                 title: 'Fetch Collections API',
@@ -45,8 +46,10 @@ export class DocHomeComponent implements OnInit {
                 title: 'Fetch Directories API',
                 url: APIURL.DIRECTORIES,
                 method: 'GET',
+                dataLocation: 'query params',
+                dataValue: '?path=/images',
                 description: 'Fetch the list of directories in your storage filesystem. Each application has a seperate filesystem',
-                response: { name: 'string', isFile: 'boolean' }
+                response: [ { name: 'string', isFile: 'boolean' } ]
             },
             {
                 title: 'Storage API',
@@ -55,7 +58,7 @@ export class DocHomeComponent implements OnInit {
                 dataLocation: 'MULTIPART Body',
                 dataValue: 'file: File; path: string',
                 description: 'Upload files and store in the cloud. Also specify the path where to store the file',
-                response: { name: 'string', isFile: 'boolean' }
+                response: { path: 'string' }
             }
         ]
     }

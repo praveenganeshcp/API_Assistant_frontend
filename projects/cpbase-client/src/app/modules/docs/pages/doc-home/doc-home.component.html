@@ -25,5 +25,9 @@
             <h4>Response</h4>
             <p>{{doc.response | jsonStringifier}}</p>
         </div>
+        <div *ngIf="doc.note" class="doc-description">
+            <h4>NOTE</h4>
+            <p><b>{{doc.note}}</b></p>
+        </div>
     </div>
 </div>
