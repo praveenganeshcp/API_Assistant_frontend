@@ -15,7 +15,7 @@ export class MenubarComponent implements OnInit {
     constructor(private route: ActivatedRoute) { 
         this.appId = this.route.snapshot.params['app_id'];
         this.menuOptions = [
-            { view: 'Database', icon: 'cloud_done', link: `/applications/${this.appId}/database/client` },
+            { view: 'Database', icon: 'storage', link: `/applications/${this.appId}/database/client` },
             { view: 'Storage', icon: 'folder', link: `/applications/${this.appId}/storage/filesystem`},
             // { view: 'Logs', icon: 'table_rows', link: `/applications/${this.appId}/logs/recent`},
         ]

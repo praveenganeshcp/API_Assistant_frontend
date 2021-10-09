@@ -1,14 +1,14 @@
 <div class="menubar flex flex-start flex-col">
-    <div routerLink="/applications" class="flex flex-sb menu-item" >
+    <div title="Applications" routerLink="/applications" class="flex flex-se menu-item" >
         <span class="material-icons">
             arrow_back
         </span>
-        <a>Applications</a>
+        <!-- <a>Applications</a> -->
     </div>
-    <div [routerLink]="menu.link" class="flex flex-sb menu-item" routerLinkActive="active-menu-item" *ngFor="let menu of menuOptions">
+    <div [routerLink]="menu.link" class="flex flex-se menu-item" routerLinkActive="active-menu-item"  *ngFor="let menu of menuOptions" [title]="menu.view">
         <span class="material-icons">
             {{menu.icon}}
         </span>
-        <a>{{menu.view}}</a>
+        <!-- <a>{{menu.view}}</a> -->
     </div>
 </div>
