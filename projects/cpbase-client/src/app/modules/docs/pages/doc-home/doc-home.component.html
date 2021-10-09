@@ -1,1 +1,29 @@
-<p>doc-home works!</p>
+<div class="docs-list">
+    <div class="api-doc-detail" *ngFor="let doc of docs">
+        <h3 class="doc-title">{{doc.title}}</h3>
+        <p class="api-url">
+            <b>{{doc.method+'  '}}</b>
+            <span>{{doc.url}}</span>
+        </p>
+        <div *ngIf="doc?.dataLocation" class="doc-description">
+            <h4>Sample request {{doc?.dataLocation}}</h4>
+            <pre>{{doc.dataValue | jsonStringifier}}</pre>
+        </div>
+        <div *ngIf="doc?.dataTypes" class="doc-description">
+            <h4>Data types</h4>
+            <p *ngFor="let detail of doc?.dataTypes"><b>{{detail.variable}}</b> : {{detail.type}}</p>
+        </div>
+        <div class="doc-description">
+            <h4>Headers</h4>
+            <p>project_auth : {{projectId}}</p>
+        </div>
+        <div class="doc-description">
+            <h4>Description</h4>
+            <p>{{doc.description}}</p>
+        </div>
+        <div class="doc-description">
+            <h4>Response</h4>
+            <p>{{doc.response | jsonStringifier}}</p>
+        </div>
+    </div>
+</div>
