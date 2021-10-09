@@ -2,9 +2,6 @@
     <div class="app-header">
         <app-header></app-header>
     </div>
-    <div class="application-heading flex">
-        <h1>Applications</h1>
-    </div>
     <div class="flex flex-se search-create-apps">
         <div class="flex flex-ar" *ngIf="!inCreateAppMode">
             <input *ngIf="applicationList.length > 0" autofocus placeholder="Search apps">
@@ -21,9 +18,9 @@
             <button [disabled]="inProgress" (click)="inCreateAppMode = false">Cancel</button>
         </div>
     </div>
-    <div class="application-table-container flex flex-se">
-        <div class="application-table">
-            <table>
+    <div class="application-table-container flex flex-start flex-col">
+        <div class="application-table flex flex-se">
+            <table *ngIf="applicationList?.length > 0; else noApps">
                 <tr *ngFor="let app of applicationList">
                     <td>{{app._id}}</td>
                     <td>{{app.name}}</td>
@@ -35,6 +32,9 @@
                     </td>
                 </tr>
             </table>
+            <ng-template #noApps>
+                No Apps created.
+            </ng-template>
         </div>
     </div>
 </div>
