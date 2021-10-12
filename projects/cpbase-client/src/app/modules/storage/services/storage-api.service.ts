@@ -17,4 +17,11 @@ export class StorageAPIService {
         params = params.append('path', path);
         return this.http.get<IObject[]>(APIURL.DIRECTORIES, {params, headers});
     }
+
+    fileUpload(projectId: string, formData: FormData) {
+      console.log(projectId)
+      let headers = new HttpHeaders();
+      headers = headers.append('project_auth', projectId);
+      return this.http.post<{success: boolean, path:string}>(APIURL.STORAGE, formData, {headers});
+    }
 }

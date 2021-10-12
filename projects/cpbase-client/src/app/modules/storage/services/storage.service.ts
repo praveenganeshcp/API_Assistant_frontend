@@ -11,4 +11,8 @@ export class StorageService {
     fetchDirectories(projectId: string, path: string) {
         return this.storageAPIService.fetchDirectories(projectId, path);
     }
+
+    fileUpload(projectId: string, formData: FormData) {
+      return this.storageAPIService.fileUpload(projectId, formData);
+    }
 }
