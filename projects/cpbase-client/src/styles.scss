@@ -39,7 +39,9 @@ html, body {
     box-sizing: border-box;
     margin: 0;
     font-family: Ubuntu;
-    outline-color: lightgray;
+    background-color: inherit;
+    color: inherit;
+    outline-color: inherit;
 }
 a {
     color: inherit;
