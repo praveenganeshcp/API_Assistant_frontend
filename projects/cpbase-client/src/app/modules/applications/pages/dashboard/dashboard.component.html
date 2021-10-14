@@ -1,7 +1,7 @@
 <div [class.light-mode]="!appSettingsService.isDarkModeEnabled()" [class.dark-mode]="appSettingsService.isDarkModeEnabled()" class="application-list">
     <div class="flex flex-se search-create-apps">
         <div class="flex flex-ar" *ngIf="!inCreateAppMode">
-            <input *ngIf="applicationList.length > 0" autofocus placeholder="Search apps">
+            <input appThemedInp *ngIf="applicationList.length > 0" autofocus placeholder="Search apps">
             <button appThemedBtn *ngIf="! inCreateAppMode" (click)="inCreateAppMode = true;" class="flex flex-se">
                 <p>Add Application</p>
             </button>

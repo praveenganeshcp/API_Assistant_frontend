@@ -5,7 +5,7 @@
     <div class="collection flex flex-se">
         <button appThemedBtn *ngIf="!inNewCollectionMode" (click)="inNewCollectionMode = true">Add collection</button>
         <div class="flex flex-se" *ngIf="inNewCollectionMode">
-            <input placeholder="Collection name" [(ngModel)]="newCollectionName">
+            <input appThemedInp placeholder="Collection name" [(ngModel)]="newCollectionName">
             <button appThemedBtn (click)="addCollection()">Save</button>
             <button appThemedBtn isWarning="true" (click)="inNewCollectionMode = false">Cancel</button>
         </div>

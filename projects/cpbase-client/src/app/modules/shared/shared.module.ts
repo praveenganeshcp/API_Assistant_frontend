@@ -26,6 +26,7 @@ import { OverlayInterceptorService } from './services/overlay-interceptor/overla
       { provide: HTTP_INTERCEPTORS, useClass: ResponseHandlerService, multi: true },
       { provide: HTTP_INTERCEPTORS, useClass: OverlayInterceptorService, multi: true },
   ],
-  exports: [CommonModule, RouterModule, MenubarComponent, HeaderComponent, FormsModule, ReactiveFormsModule, HttpClientModule, JsonStringifierPipe, ThemedBtnDirective]
+  exports: [CommonModule, RouterModule, MenubarComponent, HeaderComponent, FormsModule, ReactiveFormsModule, 
+    HttpClientModule, JsonStringifierPipe, ThemedBtnDirective, ThemedInpDirective]
 })
 export class SharedModule { }
