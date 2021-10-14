@@ -13,8 +13,9 @@ export class UserAccountShellComponent implements OnInit {
 
   constructor(public appSettingsService: AppSettingsService) { 
     this.menuItems = [
+      { icon: 'chevron_left', view: 'Applications', link: '/applications' },
       { icon: 'person', view: 'Profile', link: '/accounts/settings/profile' },
-      { icon: 'password', view: 'Change password', link: '/accounts/settings/change-password' }
+      { icon: 'password', view: 'Change password', link: '/accounts/settings/change-password' },
     ]
   }
 
