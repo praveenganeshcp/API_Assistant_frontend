@@ -1,0 +1,16 @@
+<div class="user-account-shell flex">
+    <div class="shell-menu flex flex-col">
+        <h1 class="app-name">{{appSettingsService.getAppName()}}</h1>
+        <div class="menu-items flex flex-se flex-col">
+            <div class="menu-item flex flex-sb" *ngFor="let menu of menuItems" [routerLink]="menu.link">
+                <span class="material-icons">
+                    {{menu.icon}}
+                </span>
+                <span>{{menu.view}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="account-settings-placeholder">
+        <router-outlet></router-outlet>
+    </div>
+</div>
