@@ -10,6 +10,7 @@ import { JsonStringifierPipe } from './pipes/json-stringifier.pipe';
 import { ThemedBtnDirective } from './directives/themed-button/themed-btn.directive';
 import { ThemedInpDirective } from './directives/themed-input/themed-inp.directive';
 import { AppDetailShellComponent } from './components/app-detail-shell/app-detail-shell.component';
+import { ResponseHandlerService } from './services/response-handler/response-handler.service';
 @NgModule({
   declarations: [MenubarComponent, HeaderComponent, JsonStringifierPipe, ThemedBtnDirective, ThemedInpDirective, AppDetailShellComponent],
   imports: [
@@ -20,7 +21,8 @@ import { AppDetailShellComponent } from './components/app-detail-shell/app-detai
     HttpClientModule,
   ],
   providers: [
-      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+      { provide: HTTP_INTERCEPTORS, useClass: ResponseHandlerService, multi: true },
   ],
   exports: [CommonModule, RouterModule, MenubarComponent, HeaderComponent, FormsModule, ReactiveFormsModule, HttpClientModule, JsonStringifierPipe, ThemedBtnDirective]
 })
