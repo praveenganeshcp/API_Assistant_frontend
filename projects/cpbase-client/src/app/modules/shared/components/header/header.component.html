@@ -1,7 +1,13 @@
-<div class="header flex flex-sb">
+<div class="header flex flex-sb" 
+    [class.dark-mode-header]="appSettingsService.isDarkModeEnabled()" [class.light-mode-header]="!appSettingsService.isDarkModeEnabled()">
     <h2 class="app-name">{{appSettingsService.getAppName()}}</h2>
     <div class="user-section flex flex-sb">
-        <h3 routerLink="/accounts/settings/profile">Hello {{authUser.name}}</h3>
-        <button (click)="logoutUser()">Logout</button>
+        <span routerLink="/accounts/settings/profile">Hello {{authUser.name}}</span>
+        <span (click)="logoutUser()" class="material-icons">
+            logout
+        </span>
+        <span (click)="appSettingsService.toggleAppTheme()" class="material-icons">
+            dark_mode
+        </span>
     </div>
 </div>

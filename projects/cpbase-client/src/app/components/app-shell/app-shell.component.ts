@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppSettingsService } from '../../modules/shared/services/app-settings/app-settings.service';
 
 @Component({
   selector: 'app-app-shell',
@@ -7,17 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppShellComponent implements OnInit {
 
-    lightMode: boolean;
-
-    constructor() { 
-        this.lightMode = false;
-    }
+    constructor(public appSettingsService: AppSettingsService) { }
 
     ngOnInit(): void {
-    }
-
-    toggleMode() {
-        this.lightMode = ! this.lightMode;
     }
 
 }

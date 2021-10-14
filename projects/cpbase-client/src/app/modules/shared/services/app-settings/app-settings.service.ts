@@ -17,8 +17,9 @@ export class AppSettingsService {
 		this.appVersion = '1.0.0';
 	}
 
-	setAppTheme(enableDarkMode: boolean) {
-		this.inDarkTheme = enableDarkMode;
+	toggleAppTheme() {
+		this.inDarkTheme = ! this.inDarkTheme;
+		console.log(this.inDarkTheme);
 	}
 
 	getAppName() {

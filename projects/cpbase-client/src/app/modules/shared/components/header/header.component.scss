@@ -1,9 +1,19 @@
 .header {
     width: 100%;
     height: 100%;
-    background-color: blue;
     padding: 0 2%;
 }
 .user-section {
-    width: 17%;
+    width: 15%;
+}
+.dark-mode-header {
+    background-color: black;
+    color: white;
+}
+.light-mode-header {
+    background-color: blue;
+    color: white;
+}
+.user-section span {
+    cursor: pointer;
 }
