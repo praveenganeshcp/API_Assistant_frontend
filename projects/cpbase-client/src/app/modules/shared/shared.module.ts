@@ -8,8 +8,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './services/interceptors/auth-interceptor.service';
 import { JsonStringifierPipe } from './pipes/json-stringifier.pipe';
 import { ThemedBtnDirective } from './directives/themed-button/themed-btn.directive';
+import { ThemedInpDirective } from './directives/themed-input/themed-inp.directive';
+import { AppDetailShellComponent } from './components/app-detail-shell/app-detail-shell.component';
 @NgModule({
-  declarations: [MenubarComponent, HeaderComponent, JsonStringifierPipe, ThemedBtnDirective],
+  declarations: [MenubarComponent, HeaderComponent, JsonStringifierPipe, ThemedBtnDirective, ThemedInpDirective, AppDetailShellComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([]),

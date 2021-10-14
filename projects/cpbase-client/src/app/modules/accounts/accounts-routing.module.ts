@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AppShellComponent } from '../../components/app-shell/app-shell.component';
 import { AccountShellComponent } from './components/account-shell/account-shell.component';
 import { UserAccountShellComponent } from './components/user-account-shell/user-account-shell.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
@@ -30,15 +31,21 @@ const routes: Routes = [
     },
     {
         path: 'settings',
-        component: UserAccountShellComponent,
+        component: AppShellComponent,
         children: [
             {
-                path: 'profile',
-                component: ProfileComponent
-            },
-            {
-                path: 'change-password',
-                component: ChangePasswordComponent
+                path: '',
+                component: UserAccountShellComponent,
+                children: [
+                    {
+                        path: 'profile',
+                        component: ProfileComponent
+                    },
+                    {
+                        path: 'change-password',
+                        component: ChangePasswordComponent
+                    }
+                ]
             }
         ]
     }

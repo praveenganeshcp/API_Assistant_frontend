@@ -3,13 +3,14 @@
     height: 100%;
 }
 .shell-menu {
-    width: 15%;
+    width: 14%;
     height: 100%;
 }
 .account-settings-placeholder {
-    width: 85%;
+    width: 86%;
     height: 100%;
 }
+
 .menu-items {
     height: 30%;
     width: 100%;
@@ -18,4 +19,7 @@
     padding: 0 5%;
     height: 30%;
     width: 100%;
+}
+.menu-item span:first-child {
+    padding-right: 5%;
 }
