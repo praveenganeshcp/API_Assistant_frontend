@@ -6,8 +6,11 @@
         <span (click)="logoutUser()" class="material-icons">
             logout
         </span>
-        <span (click)="appSettingsService.toggleAppTheme()" class="material-icons">
+        <span *ngIf="!appSettingsService.isDarkModeEnabled()" (click)="appSettingsService.toggleAppTheme()" class="material-icons">
             dark_mode
+        </span>
+        <span *ngIf="appSettingsService.isDarkModeEnabled()" (click)="appSettingsService.toggleAppTheme()" class="material-icons">
+            light_mode
         </span>
     </div>
 </div>

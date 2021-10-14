@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AppSettingsService } from '../../../shared/services/app-settings/app-settings.service';
 import { IApplication } from '../../services/application.model';
 import { ApplicationService } from '../../services/application.service';
 
@@ -16,7 +17,8 @@ export class DashboardComponent implements OnInit {
     appName: string;
     inProgress: boolean;
 
-    constructor(private applicationService: ApplicationService, private toastr: ToastrService, private router: Router) { 
+    constructor(private applicationService: ApplicationService, private toastr: ToastrService, private router: Router,
+        public appSettingsService: AppSettingsService) { 
         this.inCreateAppMode = false;
         this.inProgress = false;
     }

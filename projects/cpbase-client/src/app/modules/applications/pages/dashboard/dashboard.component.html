@@ -1,4 +1,4 @@
-<div class="application-list">
+<div [class.light-mode]="!appSettingsService.isDarkModeEnabled()" [class.dark-mode]="appSettingsService.isDarkModeEnabled()" class="application-list">
     <div class="app-header">
         <app-header></app-header>
     </div>
