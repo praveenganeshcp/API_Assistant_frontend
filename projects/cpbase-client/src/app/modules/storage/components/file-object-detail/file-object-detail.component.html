@@ -1,4 +1,5 @@
-<div (dblclick)="triggerOpenDirectory()" class="file-object flex flex-se flex-col">
+<div (dblclick)="triggerOpenDirectory()" [class.dark-mode-file]="appSettingsService.isDarkModeEnabled()"
+[class.light-mode-file]="!appSettingsService.isDarkModeEnabled()" class="file-object flex flex-se flex-col">
     <span *ngIf="!fileObject.isFile" class="material-icons file-object-icon">
         folder
     </span>

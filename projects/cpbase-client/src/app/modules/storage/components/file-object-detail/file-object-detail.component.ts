@@ -1,5 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { AppSettingsService } from '../../../shared/services/app-settings/app-settings.service';
 import { IObject } from '../../services/object.model';
 
 @Component({
@@ -13,7 +14,7 @@ export class FileObjectDetailComponent implements OnInit {
 
     @Output() openDirectory = new EventEmitter<string>();
 
-    constructor() { }
+    constructor(public appSettingsService: AppSettingsService) { }
 
     ngOnInit(): void {
     }

@@ -5,7 +5,7 @@
         </span>
         <!-- <a>Applications</a> -->
     </div>
-    <div [routerLink]="menu.link" class="flex flex-se menu-item" routerLinkActive="active-menu-item"  *ngFor="let menu of menuOptions" [title]="menu.view">
+    <div [routerLink]="menu.link" class="flex flex-se menu-item" [class.light-mode-menu]="!appSettingsService.isDarkModeEnabled()" routerLinkActive="active-menu-item"  *ngFor="let menu of menuOptions" [title]="menu.view">
         <span class="material-icons">
             {{menu.icon}}
         </span>
