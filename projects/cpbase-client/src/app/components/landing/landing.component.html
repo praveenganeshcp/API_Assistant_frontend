@@ -4,8 +4,8 @@
         <a routerLink="/accounts/signup">Create Account</a>
     </div>
     <div class="landing-banner flex flex-se flex-col">
-        <h1 class="app-name">{{appConst.name}}</h1>
-        <h4>{{appConst.description}}</h4>
+        <h1 class="app-name">{{appSettingsService.getAppName()}}</h1>
+        <h4>{{appSettingsService.getAppSlogan()}}</h4>
     </div>
     <div class="how-it-works flex flex-se flex-col">
         <h1>How it works ?</h1>

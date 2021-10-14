@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { appConstants } from 'projects/cpbase-client/src/app/app.constants';
 import { IAuthUser } from '../../../accounts/services/account.response';
+import { AppSettingsService } from '../../services/app-settings/app-settings.service';
 import { LocalstorageService } from '../../services/localstorage/localstorage.service';
 
 @Component({
@@ -11,12 +11,10 @@ import { LocalstorageService } from '../../services/localstorage/localstorage.se
 })
 export class HeaderComponent implements OnInit {
 
-    appConst: any;
     authUser: IAuthUser;
 
-    constructor(private localStorageService: LocalstorageService, private router: Router) { 
+    constructor(private localStorageService: LocalstorageService, private router: Router, public appSettingsService: AppSettingsService) { 
         this.authUser = this.localStorageService.getAuthUser();
-        this.appConst = appConstants
     }
 
     ngOnInit(): void {

@@ -1,7 +1,7 @@
 <div class="header flex flex-sb">
-    <h2 class="app-name">{{appConst.name}}</h2>
+    <h2 class="app-name">{{appSettingsService.getAppName()}}</h2>
     <div class="user-section flex flex-sb">
-        <h3>Hello {{authUser.name}}</h3>
+        <h3 routerLink="/accounts/settings/profile">Hello {{authUser.name}}</h3>
         <button (click)="logoutUser()">Logout</button>
     </div>
 </div>
