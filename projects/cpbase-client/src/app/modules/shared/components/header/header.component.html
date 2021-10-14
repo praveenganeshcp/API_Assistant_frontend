@@ -6,10 +6,10 @@
         <button appThemedBtn (click)="logoutUser()" class="material-icons">
             logout
         </button>
-        <button *ngIf="!appSettingsService.isDarkModeEnabled()" (click)="appSettingsService.toggleAppTheme()" class="material-icons">
+        <button appThemedBtn *ngIf="!appSettingsService.isDarkModeEnabled()" (click)="appSettingsService.toggleAppTheme()" class="material-icons">
             dark_mode
         </button>
-        <button *ngIf="appSettingsService.isDarkModeEnabled()" (click)="appSettingsService.toggleAppTheme()" class="material-icons">
+        <button appThemedBtn *ngIf="appSettingsService.isDarkModeEnabled()" (click)="appSettingsService.toggleAppTheme()" class="material-icons">
             light_mode
         </button>
     </div>

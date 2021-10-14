@@ -3,11 +3,11 @@
         <p>{{collection}} </p>
     </div>
     <div class="collection flex flex-se">
-        <button *ngIf="!inNewCollectionMode" (click)="inNewCollectionMode = true">Add collection</button>
+        <button appThemedBtn *ngIf="!inNewCollectionMode" (click)="inNewCollectionMode = true">Add collection</button>
         <div class="flex flex-se" *ngIf="inNewCollectionMode">
             <input placeholder="Collection name" [(ngModel)]="newCollectionName">
-            <button (click)="addCollection()">Save</button>
-            <button (click)="inNewCollectionMode = false">Cancel</button>
+            <button appThemedBtn (click)="addCollection()">Save</button>
+            <button appThemedBtn isWarning="true" (click)="inNewCollectionMode = false">Cancel</button>
         </div>
     </div>
 </div>

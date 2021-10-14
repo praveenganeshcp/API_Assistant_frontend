@@ -5,17 +5,14 @@
     <div class="flex flex-se search-create-apps">
         <div class="flex flex-ar" *ngIf="!inCreateAppMode">
             <input *ngIf="applicationList.length > 0" autofocus placeholder="Search apps">
-            <button *ngIf="! inCreateAppMode" (click)="inCreateAppMode = true;" class="create-app flex flex-se">
-                <span class="material-icons">
-                    add_circle_outline
-                </span>
-                <p>Application</p>
+            <button appThemedBtn *ngIf="! inCreateAppMode" (click)="inCreateAppMode = true;" class="flex flex-se">
+                <p>Add Application</p>
             </button>
         </div>
         <div class="flex flex-ar" *ngIf="inCreateAppMode">
             <input autofocus [(ngModel)]="appName" placeholder="Application name"/>
-            <button [disabled]="inProgress" (click)="createApp()">Create</button>
-            <button [disabled]="inProgress" (click)="inCreateAppMode = false">Cancel</button>
+            <button appThemedBtn [disabled]="inProgress" (click)="createApp()">Create</button>
+            <button appThemedBtn [disabled]="inProgress" isWarning="true" (click)="inCreateAppMode = false">Cancel</button>
         </div>
     </div>
     <div class="application-table-container flex flex-start flex-col">
@@ -26,7 +23,7 @@
                     <td>{{app.name}}</td>
                     <td>{{app.created_on | date}}</td>
                     <td>
-                        <button (click)="viewApp(app['_id'])">
+                        <button appThemedBtn (click)="viewApp(app['_id'])">
                             View
                         </button>
                     </td>
