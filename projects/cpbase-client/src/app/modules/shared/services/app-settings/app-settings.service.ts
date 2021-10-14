@@ -11,6 +11,7 @@ export class AppSettingsService {
 	private appSlogan: string;
 	private appVersion: string;
 	private appThemeChanges: Subject<boolean>;
+	private noOfRequestInProgress: number;
 	
 	constructor() { 
 		this.appName = 'CPBase',
@@ -18,6 +19,7 @@ export class AppSettingsService {
 		this.appSlogan = 'Manage Backend from your Frontend';
 		this.appVersion = '1.0.0';
 		this.appThemeChanges = new Subject();
+		this.noOfRequestInProgress = 0;
 	}
 
 	toggleAppTheme() {
@@ -44,5 +46,17 @@ export class AppSettingsService {
 
 	watchAppThemeChanges() {
 		return this.appThemeChanges;
+	}
+
+	addRequest() {
+		this.noOfRequestInProgress += 1;
+	}
+
+	decRequest() {
+		this.noOfRequestInProgress -= 1;
+	}
+
+	getNoOfInProgressReq() {
+		return this.noOfRequestInProgress;
 	}
 }

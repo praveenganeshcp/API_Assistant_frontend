@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppSettingsService } from './modules/shared/services/app-settings/app-settings.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'cpbase-client';
+	title = 'cpbase-client';
+
+	constructor(public appSettingsService: AppSettingsService) {}
+
+	isLoading() {
+		return this.appSettingsService.getNoOfInProgressReq() > 0;
+	}
 }

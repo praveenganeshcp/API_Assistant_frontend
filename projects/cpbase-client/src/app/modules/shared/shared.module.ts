@@ -11,6 +11,7 @@ import { ThemedBtnDirective } from './directives/themed-button/themed-btn.direct
 import { ThemedInpDirective } from './directives/themed-input/themed-inp.directive';
 import { AppDetailShellComponent } from './components/app-detail-shell/app-detail-shell.component';
 import { ResponseHandlerService } from './services/response-handler/response-handler.service';
+import { OverlayInterceptorService } from './services/overlay-interceptor/overlay-interceptor.service';
 @NgModule({
   declarations: [MenubarComponent, HeaderComponent, JsonStringifierPipe, ThemedBtnDirective, ThemedInpDirective, AppDetailShellComponent],
   imports: [
@@ -23,6 +24,7 @@ import { ResponseHandlerService } from './services/response-handler/response-han
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
       { provide: HTTP_INTERCEPTORS, useClass: ResponseHandlerService, multi: true },
+      { provide: HTTP_INTERCEPTORS, useClass: OverlayInterceptorService, multi: true },
   ],
   exports: [CommonModule, RouterModule, MenubarComponent, HeaderComponent, FormsModule, ReactiveFormsModule, HttpClientModule, JsonStringifierPipe, ThemedBtnDirective]
 })

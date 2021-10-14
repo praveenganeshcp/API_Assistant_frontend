@@ -1,3 +1,3 @@
-<div class="root-shell">
+<div class="root-shell" [class.disable-interaction]="isLoading() == true">
     <router-outlet></router-outlet>
 </div>
