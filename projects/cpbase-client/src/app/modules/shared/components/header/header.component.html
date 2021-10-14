@@ -3,7 +3,7 @@
     <a routerLink="/applications"><h2 class="app-name">{{appSettingsService.getAppName()}}</h2></a>
     <div class="user-section flex flex-sb">
         <a routerLink="/accounts/settings/profile">Hello {{authUser.name}}</a>
-        <button (click)="logoutUser()" class="material-icons">
+        <button appThemedBtn (click)="logoutUser()" class="material-icons">
             logout
         </button>
         <button *ngIf="!appSettingsService.isDarkModeEnabled()" (click)="appSettingsService.toggleAppTheme()" class="material-icons">

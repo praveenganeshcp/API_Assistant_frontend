@@ -7,8 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './services/interceptors/auth-interceptor.service';
 import { JsonStringifierPipe } from './pipes/json-stringifier.pipe';
+import { ThemedBtnDirective } from './directives/themed-button/themed-btn.directive';
 @NgModule({
-  declarations: [MenubarComponent, HeaderComponent, JsonStringifierPipe],
+  declarations: [MenubarComponent, HeaderComponent, JsonStringifierPipe, ThemedBtnDirective],
   imports: [
     CommonModule,
     RouterModule.forChild([]),
@@ -19,6 +20,6 @@ import { JsonStringifierPipe } from './pipes/json-stringifier.pipe';
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
   ],
-  exports: [CommonModule, RouterModule, MenubarComponent, HeaderComponent, FormsModule, ReactiveFormsModule, HttpClientModule, JsonStringifierPipe]
+  exports: [CommonModule, RouterModule, MenubarComponent, HeaderComponent, FormsModule, ReactiveFormsModule, HttpClientModule, JsonStringifierPipe, ThemedBtnDirective]
 })
 export class SharedModule { }
