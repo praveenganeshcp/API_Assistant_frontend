@@ -1,14 +1,14 @@
 <div class="menubar flex flex-start flex-col">
-    <div title="Applications" routerLink="/applications" class="flex flex-se menu-item" >
+    <a title="Applications" routerLink="/applications" class="flex flex-se menu-item" >
         <span class="material-icons">
             arrow_back
         </span>
         <!-- <a>Applications</a> -->
-    </div>
-    <div [routerLink]="menu.link" class="flex flex-se menu-item" [class.light-mode-menu]="!appSettingsService.isDarkModeEnabled()" routerLinkActive="active-menu-item"  *ngFor="let menu of menuOptions" [title]="menu.view">
+    </a>
+    <a [routerLink]="menu.link" class="flex flex-se menu-item" [class.light-mode-menu]="!appSettingsService.isDarkModeEnabled()" routerLinkActive="active-menu-item"  *ngFor="let menu of menuOptions" [title]="menu.view">
         <span class="material-icons">
             {{menu.icon}}
         </span>
         <!-- <a>{{menu.view}}</a> -->
-    </div>
+    </a>
 </div>
