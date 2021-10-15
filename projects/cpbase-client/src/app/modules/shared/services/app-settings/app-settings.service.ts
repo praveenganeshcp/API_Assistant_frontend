@@ -50,10 +50,12 @@ export class AppSettingsService {
 
 	addRequest() {
 		this.noOfRequestInProgress += 1;
+		console.log(this.noOfRequestInProgress);
 	}
 
 	decRequest() {
 		this.noOfRequestInProgress -= 1;
+		console.log(this.noOfRequestInProgress);
 	}
 
 	getNoOfInProgressReq() {
