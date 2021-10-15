@@ -7,7 +7,7 @@
             </button>
         </div>
         <div class="flex flex-ar" *ngIf="inCreateAppMode">
-            <input autofocus [(ngModel)]="appName" placeholder="Application name"/>
+            <input appThemedInp autofocus [(ngModel)]="appName" placeholder="Application name"/>
             <button appThemedBtn [disabled]="inProgress" (click)="createApp()">Create</button>
             <button appThemedBtn [disabled]="inProgress" isWarning="true" (click)="inCreateAppMode = false">Cancel</button>
         </div>
@@ -15,6 +15,14 @@
     <div class="application-table-container flex flex-start flex-col">
         <div class="application-table flex flex-se">
             <table *ngIf="applicationList?.length > 0; else noApps">
+                <tr *ngFor="let app of applicationList">
+                    <th>App ID</th>
+                    <th>Name</th>
+                    <th>Created On</th>
+                    <th>
+                       Action
+                    </th>
+                </tr>
                 <tr *ngFor="let app of applicationList">
                     <td>{{app._id}}</td>
                     <td>{{app.name}}</td>
