@@ -62,4 +62,8 @@ export class FilesystemComponent implements OnInit {
         )
     }
 
+    addFolder(folderName: string) {
+        this.fileObjects.push({name: folderName, isFile: false});
+    }
+
 }

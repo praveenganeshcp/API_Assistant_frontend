@@ -10,15 +10,28 @@ export class FileExplorerComponent implements OnInit {
 
     @Input() fileObjects: IObject[];
 
-    @Output() openDirectory = new EventEmitter<string>();
+    inAddMode: boolean;
+    folderName: string;
 
-    constructor() { }
+    @Output() openDirectory = new EventEmitter<string>();
+    @Output() addFolder = new EventEmitter<string>();
+
+    constructor() { 
+      this.inAddMode = false;
+      this.folderName = '';
+    }
 
     ngOnInit(): void {
     }
 
     triggerOpenDirectory(path: string) {
         this.openDirectory.emit(path)
+    }
+
+    addDirectory() {
+      this.addFolder.emit(this.folderName);
+      this.folderName = '';
+      this.inAddMode = false;
     }
 
 }

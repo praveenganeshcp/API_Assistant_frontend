@@ -6,4 +6,19 @@
         >
         </app-file-object-detail>
     </div>
+    <div *ngIf="!inAddMode" (click)="inAddMode = true" class="file-object flex flex-se flex-col">
+        <span class="material-icons">
+            add_box
+        </span>
+        <span>Add folder</span>
+    </div>
+    <div *ngIf="inAddMode" class="file-object flex flex-se flex-col">
+        <form (submit)="addDirectory()" class="flex flex-se flex-col">
+            <input appThemedInp autocomplete="off" name="folder_name" placeholder="Folder name" [(ngModel)]="folderName">
+            <div style="width: 100%;" class="flex flex-se">
+                <button appThemedBtn type="submit">Add</button>
+                <button appThemedBtn isWarning="true" (click)="inAddMode = false; folderName = ''; ">Cancel</button>
+            </div>
+        </form>
+    </div>
 </div>

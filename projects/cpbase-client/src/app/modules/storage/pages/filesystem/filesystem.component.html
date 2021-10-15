@@ -25,6 +25,7 @@
         <app-file-explorer 
             [fileObjects]="fileObjects"
             (openDirectory)="triggerOpenDirectory($event)"
+            (addFolder)="addFolder($event)"
         ></app-file-explorer>
     </div>
 </div>
