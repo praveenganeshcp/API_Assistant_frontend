@@ -13,6 +13,7 @@ import { ApplicationService } from '../../services/application.service';
 export class DashboardComponent implements OnInit {
 
     applicationList: IApplication[];
+    filteredAppList: IApplication[];
     inCreateAppMode: boolean;
     appName: string;
     inProgress: boolean;
@@ -21,10 +22,23 @@ export class DashboardComponent implements OnInit {
         public appSettingsService: AppSettingsService) { 
         this.inCreateAppMode = false;
         this.inProgress = false;
+        this.applicationList = [];
+        this.filteredAppList = [];
     }
 
     ngOnInit(): void {
         this.fetchApps();
+    }
+
+    searchApps(value: string) {
+        if(value == '') {
+            this.filteredAppList = this.applicationList.slice();
+        }
+        else {
+            this.filteredAppList = this.applicationList.filter(app => {
+                return app.name.toLowerCase().startsWith(value.toLowerCase());
+            })
+        }
     }
 
     fetchApps() {
@@ -33,6 +47,7 @@ export class DashboardComponent implements OnInit {
         this.applicationService.fetchApps().subscribe(
             (apps) => {
                 this.applicationList = apps;
+                this.filteredAppList = apps;
                 this.inProgress = false;
             },
             (err) => {

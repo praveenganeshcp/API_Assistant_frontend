@@ -1,7 +1,7 @@
 <div [class.light-mode]="!appSettingsService.isDarkModeEnabled()" [class.dark-mode]="appSettingsService.isDarkModeEnabled()" class="application-list">
     <div class="flex flex-se search-create-apps">
         <div class="flex flex-ar" *ngIf="!inCreateAppMode">
-            <input appThemedInp *ngIf="applicationList.length > 0" autofocus placeholder="Search apps">
+            <input (input)="searchApps($event.target.value)" appThemedInp *ngIf="applicationList.length > 0" autofocus placeholder="Search apps">
             <button appThemedBtn *ngIf="! inCreateAppMode" (click)="inCreateAppMode = true;" class="flex flex-se">
                 <p>Add Application</p>
             </button>
@@ -14,8 +14,8 @@
     </div>
     <div class="application-table-container flex flex-start flex-col">
         <div class="application-table flex flex-se">
-            <table *ngIf="applicationList?.length > 0; else noApps">
-                <tr *ngFor="let app of applicationList">
+            <table *ngIf="filteredAppList?.length > 0; else noApps">
+                <tr>
                     <th>App ID</th>
                     <th>Name</th>
                     <th>Created On</th>
@@ -23,7 +23,7 @@
                        Action
                     </th>
                 </tr>
-                <tr *ngFor="let app of applicationList">
+                <tr *ngFor="let app of filteredAppList">
                     <td>{{app._id}}</td>
                     <td>{{app.name}}</td>
                     <td>{{app.created_on | date}}</td>
@@ -35,7 +35,7 @@
                 </tr>
             </table>
             <ng-template #noApps>
-                No Apps created.
+                No Apps found.
             </ng-template>
         </div>
     </div>
