@@ -29,6 +29,9 @@ export class FileExplorerComponent implements OnInit {
     }
 
     addDirectory() {
+      if(this.folderName === '') {
+        return;
+      }
       this.addFolder.emit(this.folderName);
       this.folderName = '';
       this.inAddMode = false;

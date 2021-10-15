@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { IObject } from '../../services/object.model';
 import { StorageService } from '../../services/storage.service';
 
@@ -14,7 +15,8 @@ export class FilesystemComponent implements OnInit {
     selectedPath: string;
     projectId: string;
 
-    constructor(private storageService: StorageService, private activatedRoute: ActivatedRoute) {
+    constructor(private storageService: StorageService, private activatedRoute: ActivatedRoute, 
+        private toastr: ToastrService) {
         this.fileObjects = [];
         this.selectedPath = '';
      }
@@ -52,9 +54,7 @@ export class FilesystemComponent implements OnInit {
         formData.append('path', this.selectedPath == '' ? '/' : this.selectedPath);
         this.storageService.fileUpload(this.projectId, formData).subscribe(
             (response) => {
-                if(response.success == true) {
-                    this.fetchDirectories();
-                }
+                this.fetchDirectories();
             },
             err => {
                 console.error(err);
@@ -63,7 +63,16 @@ export class FilesystemComponent implements OnInit {
     }
 
     addFolder(folderName: string) {
-        this.fileObjects.push({name: folderName, isFile: false});
+        this.storageService.createDirectory(this.projectId, this.selectedPath, folderName).subscribe(
+            (response) => {
+                this.toastr.success(response, 'success');
+                this.fileObjects.push({name: folderName, isFile: false});
+            },
+            err => {
+                console.log(err);
+                this.toastr.error(err, 'Error');
+            }
+        )
     }
 
 }
