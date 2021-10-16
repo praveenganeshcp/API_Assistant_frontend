@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AppSettingsService } from '../../../shared/services/app-settings/app-settings.service';
 import { APIURL } from '../../../shared/utilities/api-urls';
 
 @Component({
@@ -12,7 +13,7 @@ export class DocHomeComponent implements OnInit {
     docs: any[];
     projectId: string;
 
-    constructor(private activatedRoute: ActivatedRoute) { 
+    constructor(private activatedRoute: ActivatedRoute, public appSettingsService: AppSettingsService) { 
         this.projectId = this.activatedRoute.parent.parent.snapshot.params['app_id'];
         let allowedOps = ['findOne', 'find', 'insertOne', 'insertMany', 'updateOne', 'updateMany', 'aggregate', 'deleteOne', 'deleteMany'];
         this.docs = [

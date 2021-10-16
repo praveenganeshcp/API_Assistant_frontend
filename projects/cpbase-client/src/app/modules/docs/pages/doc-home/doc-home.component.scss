@@ -4,6 +4,16 @@
     padding: 3%;
     overflow: auto;
 }
+.guide-section {
+    padding: 2%;
+    width: 100%;
+    height: auto;
+    background-color: gray;
+    line-height: 1.7em;
+}
+.guide-section h1 {
+    margin-bottom: 2%;
+}
 .api-doc-detail {
     margin-bottom: 2%;
     width: 100%;
