@@ -50,8 +50,8 @@ export class FilesystemComponent implements OnInit {
 
     fileUpload(fileObj: FileList) {
         let formData = new FormData();
-        formData.append('file', fileObj.item(0));
         formData.append('path', this.selectedPath == '' ? '/' : this.selectedPath);
+        formData.append('file', fileObj.item(0));
         this.storageService.fileUpload(this.projectId, formData).subscribe(
             (response) => {
                 this.fetchDirectories();
