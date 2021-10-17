@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomValidator } from '../../../shared/utilities/custom-validators';
 import { AccountServiceService } from '../../services/account-service.service';
@@ -12,7 +13,7 @@ import { AccountServiceService } from '../../services/account-service.service';
 export class ChangePasswordComponent implements OnInit {
 
 	changePasswordForm: FormGroup;
-	constructor(private formBuilder: FormBuilder, private toastrService: ToastrService, private accountService: AccountServiceService) { 
+	constructor(private formBuilder: FormBuilder, private toastrService: ToastrService, private accountService: AccountServiceService, private router: Router) { 
 		this.changePasswordForm = this.formBuilder.group({
 			oldPassword: this.formBuilder.control('', [Validators.required, CustomValidator.strongPassword]),
 			newPassword: this.formBuilder.control('', [Validators.required, CustomValidator.strongPassword]),
@@ -48,8 +49,11 @@ export class ChangePasswordComponent implements OnInit {
 				oldPassword, newPassword
 			}
 			this.accountService.changePassword(reqObj).subscribe(
-				(response) => {
+				(response: string) => {
 					this.toastrService.info(response);
+					if(response.includes('changed')) {
+						this.router.navigate(['accounts', 'settings', 'profile']);
+					}
 				},
 				err => {
 					this.toastrService.error('Error in changing password');
