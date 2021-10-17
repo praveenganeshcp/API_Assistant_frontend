@@ -1,15 +1,15 @@
 <div class="profile-section">
-    <div class="profile-form">
-        <form class="flex flex-col flex-sb">
-            <div class="form-control">
-                <label for="usernmae">Username:</label>
-                <input appThemedInp autocomplete="off" id="username">
-            </div>
-            <div class="form-control">
-                <label for="mailId">Email: </label>
-                <input appThemedInp autocomplete="off" id="mailId">
-            </div>
-            <button appThemedBtn type="submit">Save Changes</button>
-        </form>
+    <div class="profile-form flex flex-col flex-se">
+        <div class="avatar">
+            {{authUser.name[0] | uppercase}}
+        </div>
+        <div class="flex profile-detail">
+            <span class="material-icons">person</span>
+            <p>{{authUser.name}}</p>
+        </div>
+        <div class="flex profile-detail">
+            <span class="material-icons">mail</span>
+            {{authUser.mailId}}
+        </div>
     </div>
 </div>

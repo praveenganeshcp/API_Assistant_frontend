@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalstorageService } from '../../../shared/services/localstorage/localstorage.service';
+import { IAuthUser } from '../../services/account.response';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+	authUser: IAuthUser;
 
-  ngOnInit(): void {
-  }
+	constructor(private localStorageService: LocalstorageService) { 
+		this.authUser = this.localStorageService.getAuthUser();
+		console.log(this.authUser);
+	}
+
+	ngOnInit(): void {
+	}
 
 }
