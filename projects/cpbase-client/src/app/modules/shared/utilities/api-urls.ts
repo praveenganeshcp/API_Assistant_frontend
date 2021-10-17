@@ -5,6 +5,7 @@ const baseUrl = environment.apiUrl+'api/v1/'
 export const APIURL = {
     SIGNUP: baseUrl + 'accounts/signup',
     LOGIN: baseUrl + 'accounts/login',
+    CHANGE_PSWD: baseUrl+ 'accounts/change-password',
     APPS: baseUrl+ 'projects',
     STORAGE: baseUrl+ 'cpbase/storage',
     DIRECTORIES: baseUrl + 'cpbase/filesystem',

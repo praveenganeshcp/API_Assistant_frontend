@@ -1,4 +1,4 @@
-import { FormControl, ValidationErrors } from "@angular/forms";
+import { FormControl, FormGroup, ValidationErrors } from "@angular/forms";
 
 export class CustomValidator {
     static strongPassword(control: FormControl): ValidationErrors | null {
@@ -23,5 +23,12 @@ export class CustomValidator {
             }
         }
         return (numerical >=1 && special >= 1 && caps >= 1 && small >= 1) ? null : {weakPassword: value};
+    }
+
+    static passwordMatch(passwordForm: FormGroup): ValidationErrors| null {
+        let value = passwordForm.value;
+        let { newPassword, newConfirmPassword } = value;
+        let result = newPassword == newConfirmPassword ? null : {passwordsDoNotMatch: newPassword};
+        return result;
     }
 }

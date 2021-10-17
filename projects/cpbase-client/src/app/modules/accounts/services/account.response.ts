@@ -18,4 +18,9 @@ export interface ISignupResponse {
     user: IAuthUser
 }
 
+export interface IChangePwdRequest {
+    oldPassword: string;
+    newPassword: string;
+}
+
 export type ILoginResponse = ISignupResponse;
