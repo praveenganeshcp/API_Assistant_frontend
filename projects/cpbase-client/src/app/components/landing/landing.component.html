@@ -1,0 +1,37 @@
+<div class="landing-page">
+    <div class="landing-header flex flex-end">
+        <a routerLink="/accounts/login">Login </a>
+        <a routerLink="/accounts/signup">Create Account</a>
+    </div>
+    <div class="landing-banner flex flex-se flex-col">
+        <h1 class="app-name">{{appSettingsService.getAppName()}}</h1>
+        <h4>{{appSettingsService.getAppSlogan()}}</h4>
+    </div>
+    <div class="how-it-works flex flex-se flex-col">
+        <h1>How it works ?</h1>
+        <div class="hiw-details flex flex-se">
+            <div class="hiw-detail-card flex flex-se flex-col" *ngFor="let work of howItWorks">
+                <span class="material-icons">
+                    {{work.icon}}
+                </span>
+                <h4>{{work.title}}</h4>
+                <p>{{work.description}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="features flex flex-se flex-col">
+        <h1>Features</h1>
+        <div *ngFor="let feature of features" class="feature-card flex flex-se">
+            <div class="feature-icon flex flex-se flex-col">
+                <span class="material-icons">{{feature.icon}}</span>
+                <h2>{{feature.title}}</h2>
+            </div>
+            <div class="feature-description flex flex-se">
+                <h5>{{feature.description}}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="getting-started flex flex-se">
+        <a routerLink="/accounts/signup">Get started</a>
+    </div>
+</div>

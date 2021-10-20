@@ -1,0 +1,15 @@
+<div class="profile-section">
+    <div class="profile-form flex flex-col flex-se">
+        <div class="avatar">
+            {{authUser.name[0] | uppercase}}
+        </div>
+        <div class="flex profile-detail">
+            <span class="material-icons">person</span>
+            <p>{{authUser.name}}</p>
+        </div>
+        <div class="flex profile-detail">
+            <span class="material-icons">mail</span>
+            {{authUser.mailId}}
+        </div>
+    </div>
+</div>

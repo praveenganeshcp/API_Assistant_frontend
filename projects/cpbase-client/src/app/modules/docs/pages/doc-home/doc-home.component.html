@@ -1,0 +1,38 @@
+<div class="docs-list">
+    <div class="guide-section">
+        <h1>Getting started</h1>
+        <p>Suppose you are frontend developer and if your application wants to fetch or save data in database, you need to write server side code that connects your database and expose APIs for your frontend application. But as a frontend developer, you want concentrate in architecture and implemention your frontend and use any Backend-as-a-Service like Firebase to build the backend. Here <b>{{appSettingsService.getAppName()}}</b> is a kind of platform that helps to maintain your backend without launching any servers and database, but only writing MongoDB queries in the frontend. We'll see with an example</p>
+    </div>
+
+    <div class="api-doc-detail" *ngFor="let doc of docs">
+        <h3 class="doc-title">{{doc.title}}</h3>
+        <p class="api-url">
+            <b>{{doc.method+'  '}}</b>
+            <span>{{doc.url}}</span>
+        </p>
+        <div *ngIf="doc?.dataLocation" class="doc-description">
+            <h4>Sample request {{doc?.dataLocation}}</h4>
+            <pre>{{doc.dataValue | jsonStringifier}}</pre>
+        </div>
+        <div *ngIf="doc?.dataTypes" class="doc-description">
+            <h4>Data types</h4>
+            <p *ngFor="let detail of doc?.dataTypes"><b>{{detail.variable}}</b> : {{detail.type}}</p>
+        </div>
+        <div class="doc-description">
+            <h4>Headers</h4>
+            <p>project_auth : {{projectId}}</p>
+        </div>
+        <div class="doc-description">
+            <h4>Description</h4>
+            <p>{{doc.description}}</p>
+        </div>
+        <div class="doc-description">
+            <h4>Response</h4>
+            <p>{{doc.response | jsonStringifier}}</p>
+        </div>
+        <div *ngIf="doc.note" class="doc-description">
+            <h4>NOTE</h4>
+            <p><b>{{doc.note}}</b></p>
+        </div>
+    </div>
+</div>

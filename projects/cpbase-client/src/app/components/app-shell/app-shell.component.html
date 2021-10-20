@@ -1,0 +1,9 @@
+<div class="app-shell" 
+    [class.light-mode]="!appSettingsService.isDarkModeEnabled()" [class.dark-mode]="appSettingsService.isDarkModeEnabled()">
+    <div class="app-header">
+        <app-header></app-header>
+    </div>
+    <div class="app-placeholder">
+        <router-outlet></router-outlet>
+    </div>
+</div>

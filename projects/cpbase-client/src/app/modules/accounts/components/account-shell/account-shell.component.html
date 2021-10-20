@@ -1,0 +1,9 @@
+<div class="account-shell flex">
+    <div class="app-banner flex flex-col flex-se">
+        <a routerLink="/" class="app-name">{{appSettingsService.getAppName()}}</a>
+        <h5>{{appSettingsService.getAppSlogan()}}</h5>
+    </div>
+    <div class="account-placeholder">
+        <router-outlet></router-outlet>
+    </div>
+</div>

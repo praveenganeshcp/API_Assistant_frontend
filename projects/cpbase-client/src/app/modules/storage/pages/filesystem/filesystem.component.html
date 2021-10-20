@@ -1,0 +1,31 @@
+<div class="file-object-window flex flex-se flex-col">
+    <div class="file-upload-breadcrumbs flex">
+        <div class="file-breacrumbs flex flex-start">
+            <span class="path flex flex-se" *ngFor="let path of selectedPath.split('/'); let pathIndex=index">
+                <span (click)="selectPath(pathIndex)">{{path}}</span>
+                <span (click)="selectPath(0)" *ngIf="pathIndex == 0" class="material-icons">
+                    home
+                </span>
+                <span class="material-icons">
+                    chevron_right
+                </span>
+            </span>
+        </div>
+        <div class="file-upload-button flex flex-se">
+            <label appThemedBtn for="fileUpload" class="flex flex-se">
+                <span>Upload File</span>
+                <span class="material-icons">
+                    file_upload
+                </span>
+            </label>
+            <input (change)="fileUpload($event.target.files)" type="file" style="display: none;" id="fileUpload">
+        </div>
+    </div>
+    <div class="file-explorer-container">
+        <app-file-explorer 
+            [fileObjects]="fileObjects"
+            (openDirectory)="triggerOpenDirectory($event)"
+            (addFolder)="addFolder($event)"
+        ></app-file-explorer>
+    </div>
+</div>

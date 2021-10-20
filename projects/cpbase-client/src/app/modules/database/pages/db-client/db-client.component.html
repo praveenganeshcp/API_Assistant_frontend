@@ -1,0 +1,18 @@
+<div class="db-client flex">
+    <div class="db-collections">
+        <app-collections-list 
+            [collections]="collectionList"
+            [selectedCollection]="selectedCollection"
+            (selectionChanged)="changeCollection($event)"
+            (newCollection)="addCollection($event)"
+        >
+        </app-collections-list>
+    </div>
+    <div class="db-operation">
+        <app-db-operation
+            [dbOperationResult]="dbResult"
+            (runQuery)="executeQuery($event)"
+        >
+        </app-db-operation>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+.application-list {
+    width: 100%;
+    height: 100%;
+}
+.search-create-apps {
+    height: 13%;
+    width: 100%;
+    padding: 1.6%;
+}
+.search-create-apps > div {
+    height: 100%;
+    width: 40%;
+}
+.search-create-apps  input {
+    padding: 3px;
+    border-radius: 5px;
+    height: 100%;
+    font-size: 1.3em;
+}
+.application-table-container {
+    padding-top: 3%;
+    height: 87%;
+    width: 100%;
+    overflow-y: auto;
+}
+.application-table {
+    width: 80%;
+    max-height: 90%;
+    overflow: auto;
+}
+.application-table table {
+    height: auto;
+    width: 100%;
+    text-align: center;
+}
+.application-table td {
+    padding: 15px 5px;
+    border-bottom: 1px solid black;
+}
+.application-list td button {
+    height: 100%;
+    width: 100%;
+}

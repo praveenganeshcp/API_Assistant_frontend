@@ -1,0 +1,17 @@
+<div class="application-card flex flex-se flex-col">
+    <div class="app-detail flex flex-start">
+        <span class="material-icons">
+            apps
+        </span>
+        <span>{{application.name}}</span>
+    </div>
+    <div class="app-detail flex flex-start">
+        <span class="material-icons">
+            calendar_today
+        </span>
+        <span>{{application.created_on | date}}</span>    
+    </div>
+    <div class="flex flex-center flex-se">
+        <button (click)="viewApp()">View</button>
+    </div>
+</div>

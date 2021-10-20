@@ -1,0 +1,16 @@
+<div class="user-account-shell flex">
+    <div class="shell-menu flex flex-col" [class.light-mode-menu]="!appSettingsService.isDarkModeEnabled()"
+    [class.dark-mode-menu]="appSettingsService.isDarkModeEnabled()">
+        <div class="menu-items flex flex-se flex-col">
+            <a class="menu-item flex flex-start" *ngFor="let menu of menuItems" [routerLink]="menu.link">
+                <span class="material-icons">
+                    {{menu.icon}}
+                </span>
+                <span>{{menu.view}}</span>
+            </a>
+        </div>
+    </div>
+    <div class="account-settings-placeholder">
+        <router-outlet></router-outlet>
+    </div>
+</div>

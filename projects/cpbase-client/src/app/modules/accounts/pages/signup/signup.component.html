@@ -1,0 +1,28 @@
+<div class="signup-form flex flex-se flex-col">
+    <h1>Create Account</h1>
+    <form [formGroup]="signupForm" (ngSubmit)="createAccount()" class="flex flex-col flex-se">
+        <div>
+            <input formControlName="username" placeholder="Username">
+            <div *ngIf="usernameControl.invalid && usernameControl.touched">
+                <p *ngIf="usernameControl.errors.required">Field required</p>
+            </div>
+        </div>
+        <div>
+            <input formControlName="mailId" placeholder="Email-id" type="email">
+            <div *ngIf="mailIdControl.invalid && mailIdControl.touched">
+                <p *ngIf="mailIdControl.errors.required">Field required</p>
+                <p *ngIf="mailIdControl.errors.email">Invalid mail ID</p>
+            </div>
+        </div>
+        <div>
+            <input formControlName="password" placeholder="Password" type="password">
+            <div *ngIf="passwordControl.invalid && passwordControl.touched">
+                <p *ngIf="passwordControl.errors.required">Field required</p>
+                <p *ngIf="passwordControl.errors.weakPassword">Weak password</p>
+            </div>
+        </div>
+        <button appThemedBtn type="submit">Submit</button>
+    </form>
+    <span>Aleady have an account ? <a routerLink="/accounts/login">Login here</a></span>
+
+</div>

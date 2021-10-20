@@ -1,0 +1,25 @@
+<div class="file-objects-container flex flex-start flex-wrap">
+    <div *ngFor="let fileObject of fileObjects" class="file-object flex flex-se flex-col">
+        <app-file-object-detail 
+            [fileObject]="fileObject"
+            (openDirectory)="triggerOpenDirectory($event)"
+        >
+        </app-file-object-detail>
+    </div>
+    <div *ngIf="!inAddMode" (click)="inAddMode = true" class="file-object flex flex-se flex-col">
+        <button appThemedBtn>
+            <span class="material-icons add-folder-icon">
+                add_box
+            </span>
+        </button>
+    </div>
+    <div *ngIf="inAddMode" class="file-object flex flex-se flex-col">
+        <form (submit)="addDirectory()" class="flex flex-se flex-col">
+            <input appThemedInp autocomplete="off" name="folder_name" placeholder="Folder name" [(ngModel)]="folderName">
+            <div style="width: 100%;" class="flex flex-se">
+                <button appThemedBtn type="submit">Add</button>
+                <button appThemedBtn isWarning="true" (click)="inAddMode = false; folderName = ''; ">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="app-details-placeholder flex">
+    <div class="app-menubar" [class.light-mode-menu]="!appSettingsService.isDarkModeEnabled()"
+    [class.dark-mode-menu]="appSettingsService.isDarkModeEnabled()">
+        <app-menubar></app-menubar>
+    </div>
+    <div class="app-route-placeholder">
+        <router-outlet></router-outlet>
+    </div>
+</div>

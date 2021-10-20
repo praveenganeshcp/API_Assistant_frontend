@@ -1,0 +1,16 @@
+<div class="header flex flex-sb" 
+    [class.dark-mode-header]="appSettingsService.isDarkModeEnabled()" [class.light-mode-header]="!appSettingsService.isDarkModeEnabled()">
+    <a routerLink="/applications"><h2 class="app-name">{{appSettingsService.getAppName()}}</h2></a>
+    <div class="user-section flex flex-sb">
+        <a routerLink="/accounts/settings/profile">Hello {{authUser.name}}</a>
+        <button appThemedBtn (click)="logoutUser()" class="material-icons">
+            logout
+        </button>
+        <button appThemedBtn *ngIf="!appSettingsService.isDarkModeEnabled()" (click)="appSettingsService.toggleAppTheme()" class="material-icons">
+            dark_mode
+        </button>
+        <button appThemedBtn *ngIf="appSettingsService.isDarkModeEnabled()" (click)="appSettingsService.toggleAppTheme()" class="material-icons">
+            light_mode
+        </button>
+    </div>
+</div>
