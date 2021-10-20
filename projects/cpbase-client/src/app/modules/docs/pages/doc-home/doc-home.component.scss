@@ -8,11 +8,15 @@
     padding: 2%;
     width: 100%;
     height: auto;
-    background-color: gray;
     line-height: 1.7em;
 }
 .guide-section h1 {
     margin-bottom: 2%;
+}
+.api-title {
+    padding: 1%;
+    background-color: gray;
+    color: white;
 }
 .api-doc-detail {
     margin-bottom: 2%;
@@ -26,6 +30,7 @@
 .api-url {
     padding: 1%;
     background-color: gray;
+    color: white;
 }
 .doc-description {
     padding: 1%;

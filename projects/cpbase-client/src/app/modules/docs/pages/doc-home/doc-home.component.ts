@@ -12,6 +12,7 @@ export class DocHomeComponent implements OnInit {
 
     docs: any[];
     projectId: string;
+    appUrls: any = APIURL;
 
     constructor(private activatedRoute: ActivatedRoute, public appSettingsService: AppSettingsService) { 
         this.projectId = this.activatedRoute.parent.parent.snapshot.params['app_id'];

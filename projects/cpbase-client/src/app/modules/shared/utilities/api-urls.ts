@@ -12,4 +12,6 @@ export const APIURL = {
     COLLECTIONS: baseUrl+ 'cpbase/collections',
     GLOBAL: baseUrl+ 'cpbase/global',
     OBJECT: baseUrl+ 'cpbase/object',
+    CPBASE_SIGNUP: baseUrl+ 'cpbase/signup',
+    CPBASE_LOGIN: baseUrl+ 'cpbase/login'
 }
