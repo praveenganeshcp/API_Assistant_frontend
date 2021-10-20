@@ -1,27 +1,20 @@
-# Cpbase
+> *NOTE: THIS IS A LEARNING PROJECT*
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+# CPBase
 
-## Development server
+## Manage backend from your frontend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+CPBase is a platform that helps developers to concentrate in the architecture and the implementation of frontend components and painting the API results, instead of writing server side code to connect with database and transfer the data through APIs
 
-## Code scaffolding
+It stores all your application data in a seperate MongoDB. So you can do all the standard *CRUD* operations without managing application and database servers.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> Currently supports 9 MongoDB operations _insertOne, insertMany, findOne, find, updateOne, updateMany, deleteOne, deleteMany, aggregate_
 
-## Build
+## How it works ?
+1. Construct MongoDB queries in the frontend, specify the action like _insertOne_ or _findOne_ and collection name in the request, pass it to CPBase global API and paint the UI with API response.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+2. Integrate tailored Authentication APIs in your frontend application that provides a standard signup and login functionalities
 
-## Running unit tests
+3. CPBase also provides storage API. Use it to upload file objects and specify the file path in request body
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+4. Access all your database and storage data in CPBase Simple and Smooth UI
