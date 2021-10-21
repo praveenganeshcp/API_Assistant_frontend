@@ -4,6 +4,17 @@
     padding: 3%;
     overflow: auto;
 }
+.header {
+    height: 10%;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    padding-left: 3%;
+}
 .guide-section {
     padding: 2%;
     width: 100%;

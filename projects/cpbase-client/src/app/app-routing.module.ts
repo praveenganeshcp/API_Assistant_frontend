@@ -37,13 +37,13 @@ const routes: Routes = [
                         path: 'database',
                         loadChildren: () => import('./modules/database/database.module').then(m => m.DatabaseModule)
                     },
-                    {
-                        path: 'docs',
-                        loadChildren: () => import('./modules/docs/docs.module').then(m => m.DocsModule),
-                    }
                 ]
             }
         ]
+    },
+    {
+        path: 'docs',
+        loadChildren: () => import('./modules/docs/docs.module').then(m => m.DocsModule),
     },
     {
         path: '**',

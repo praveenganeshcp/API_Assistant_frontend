@@ -1,11 +1,13 @@
 <div class="landing-page">
     <div class="landing-header flex flex-end">
+        <a routerLink="/docs/home">Documentation</a>
         <a routerLink="/accounts/login">Login </a>
         <a routerLink="/accounts/signup">Create Account</a>
     </div>
     <div class="landing-banner flex flex-se flex-col">
         <h1 class="app-name">{{appSettingsService.getAppName()}}</h1>
         <h4>{{appSettingsService.getAppSlogan()}}</h4>
+        <a routerLink="/docs/home">Go to Docs</a>
     </div>
     <div class="how-it-works flex flex-se flex-col">
         <h1>How it works ?</h1>

@@ -1,4 +1,7 @@
 <div class="docs-list">
+    <div class="header flex flex-start">
+        <a routerLink="/">{{appSettingsService.getAppName()}}</a>
+    </div>
     <div class="guide-section">
         <h1>Getting started</h1>
         <p>Suppose you are frontend developer and if your application wants to fetch or save data in database, you need to write server side code that connects your database and expose APIs for your frontend application. But as a frontend developer, you want concentrate in architecture and implemention your frontend and use any Backend-as-a-Service like Firebase to build the backend. Here <b>{{appSettingsService.getAppName()}}</b> is a kind of platform that helps to maintain your backend without launching any servers and database, but only writing MongoDB queries in the frontend. We'll see with an example</p>
@@ -8,6 +11,9 @@
     <div class="guide-section">
         <h1>Tutorial</h1>
         <p>Let us see how we can build a todo app with signup and login functionalities without writing any server side code.</p>
+        <br>
+        <b>Register account in <b>{{appSettingsService.getAppName()}}</b> and create a application. You can find the application secret key in general tab. Make sure it is secret to you only. This secret key should be added in "app_secret" header in all the requests</b>
+        <br>
         <br>
         <p>1. To welcome users to our application, <b>{{appSettingsService.getAppName()}}</b> provides standard Email, password signup endpoint. In request body, add <b>mailId, password</b> fields. You can add extra fields as you want. This API will create a user account in users collection and return the user document with unique id. We can save the returned user object in global store</p>
         <div class="api-title">
@@ -20,7 +26,7 @@
             </p>
         </div>
         <br>
-        <p>2. After user creates account, to save list of todo items we can use <b>{{appSettingsService.getAppName()}} Global endpoint</b>. In the request body, we need to specify three fields - <b>collectionName, action and data.</b> Collection name specifies the MongoDB collection name. Action specifies the MongoDB operations like <i>insertOne, insertMany, aggregate</i> and data specifies array of todo items. Response of this API is a standard MongoDB response based on the action field </p>
+        <p>2. After user creates account, to save list of todo items we can use <b>{{appSettingsService.getAppName()}} Global endpoint</b>. This single endpoint can be used to perform any CRUD operations in your application database. In the request body, we need to specify three fields - <b>collectionName, action and data.</b> Collection name specifies the MongoDB collection name. Action specifies the MongoDB operations like <i>insertOne, insertMany, aggregate</i> and data specifies array of todo items. Response of this API is a standard MongoDB response based on the action field </p>
         <p><b>NOTE: The value of data field depends on the type of action you are doing. If you specify <i>insertOne or insertMany</i> action, data field represents json document to be saved. If you specify the action as aggregate, data field contain aggregate query</b></p>
         <div class="api-title">
             <p>POST: {{appUrls.GLOBAL}}</p>
@@ -83,7 +89,7 @@
             </div>
             <div class="doc-description">
                 <h4>Headers</h4>
-                <p>project_auth : {{projectId}}</p>
+                <p>app_secret : {{projectId}}</p>
             </div>
             <div class="doc-description">
                 <h4>Description</h4>

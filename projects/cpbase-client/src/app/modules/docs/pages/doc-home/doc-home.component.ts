@@ -15,9 +15,42 @@ export class DocHomeComponent implements OnInit {
     appUrls: any = APIURL;
 
     constructor(private activatedRoute: ActivatedRoute, public appSettingsService: AppSettingsService) { 
-        this.projectId = this.activatedRoute.parent.parent.snapshot.params['app_id'];
+        this.projectId = "Your app secret";
         let allowedOps = ['findOne', 'find', 'insertOne', 'insertMany', 'updateOne', 'updateMany', 'aggregate', 'deleteOne', 'deleteMany'];
         this.docs = [
+            {
+                title: 'Signup API',
+                url: APIURL.CPBASE_SIGNUP,
+                method: 'POST',
+                dataLocation: 'body',
+                dataValue: {
+                    emailId: 'user@mail.com',
+                    password: 'Strong Password'
+                },
+                dataTypes: [
+                    { variable: 'emailId', type: 'string' },
+                    { variable: 'password', type: 'string' },
+                ],
+                description: `${appSettingsService.getAppName()} provides standard signup API helps to users to create account in your application`,
+                response: 'A user object is created with unique id is returned',
+                note: 'You can add extra fields compatible with MongoDB BSON types. Password field must satisfy strong password validation (1 cap, 1 small, 1 digit, 1 special char)'
+            },
+            {
+                title: 'Login API',
+                url: APIURL.CPBASE_LOGIN,
+                method: 'POST',
+                dataLocation: 'body',
+                dataValue: {
+                    emailId: 'user@mail.com',
+                    password: 'Strong Password'
+                },
+                dataTypes: [
+                    { variable: 'emailId', type: 'string' },
+                    { variable: 'password', type: 'string' },
+                ],
+                description: `${appSettingsService.getAppName()} provides standard login API that returns user object when correct mailId and password is provided by the user`,
+                response: 'The saved user object is returned on successful login',
+            },
             {
                 title: 'Global API',
                 url: APIURL.GLOBAL,
